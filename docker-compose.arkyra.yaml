@@ -1,0 +1,175 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  arkyra-postgres:
+    image: postgres:16-alpine
+    container_name: arkyra-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: arkyra_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-arkyra_secure_password_change_in_production}
+      POSTGRES_DB: arkyra_db
+    volumes:
+      - arkyra-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - arkyra-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U arkyra_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache & Queue
+  arkyra-redis:
+    image: redis:7-alpine
+    container_name: arkyra-redis
+    restart: always
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-arkyra_redis_password}
+    volumes:
+      - arkyra-redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - arkyra-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Temporal Server (Workflow Orchestration)
+  arkyra-temporal:
+    image: temporalio/auto-setup:latest
+    container_name: arkyra-temporal
+    restart: always
+    environment:
+      - DB=postgresql
+      - DB_PORT=5432
+      - POSTGRES_USER=arkyra_user
+      - POSTGRES_PWD=${POSTGRES_PASSWORD:-arkyra_secure_password_change_in_production}
+      - POSTGRES_SEEDS=arkyra-postgres
+      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
+    ports:
+      - "7233:7233"
+    networks:
+      - arkyra-network
+    depends_on:
+      arkyra-postgres:
+        condition: service_healthy
+    volumes:
+      - ./dynamicconfig:/etc/temporal/config/dynamicconfig
+
+  # Temporal Web UI
+  arkyra-temporal-ui:
+    image: temporalio/ui:latest
+    container_name: arkyra-temporal-ui
+    restart: always
+    environment:
+      - TEMPORAL_ADDRESS=arkyra-temporal:7233
+      - TEMPORAL_CORS_ORIGINS=http://localhost:3000
+    ports:
+      - "8080:8080"
+    networks:
+      - arkyra-network
+    depends_on:
+      - arkyra-temporal
+
+  # ARKYRA Backend API
+  arkyra-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: arkyra-backend
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://arkyra_user:${POSTGRES_PASSWORD:-arkyra_secure_password_change_in_production}@arkyra-postgres:5432/arkyra_db
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-arkyra_redis_password}@arkyra-redis:6379
+      - JWT_SECRET=${JWT_SECRET:-change_this_secret_in_production}
+      - TEMPORAL_ADDRESS=arkyra-temporal:7233
+      - BACKEND_INTERNAL_URL=http://arkyra-backend:3000
+      - NEXT_PUBLIC_BRAND_TYPE=${NEXT_PUBLIC_BRAND_TYPE:-arkyra-saas}
+      - GOOGLE_GEMINI_API_KEY=${GOOGLE_GEMINI_API_KEY}
+    ports:
+      - "3000:3000"
+    networks:
+      - arkyra-network
+    depends_on:
+      arkyra-postgres:
+        condition: service_healthy
+      arkyra-redis:
+        condition: service_healthy
+      arkyra-temporal:
+        condition: service_started
+    volumes:
+      - arkyra-uploads:/uploads
+
+  # ARKYRA Frontend
+  arkyra-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: arkyra-frontend
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:4007/api
+      - NEXT_PUBLIC_BRAND_TYPE=${NEXT_PUBLIC_BRAND_TYPE:-arkyra-saas}
+      - NEXT_PUBLIC_DEFAULT_LANGUAGE=${NEXT_PUBLIC_DEFAULT_LANGUAGE:-en}
+    ports:
+      - "3001:3000"
+    networks:
+      - arkyra-network
+    depends_on:
+      - arkyra-backend
+
+  # ARKYRA Orchestrator (Worker)
+  arkyra-orchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile.orchestrator
+    container_name: arkyra-orchestrator
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://arkyra_user:${POSTGRES_PASSWORD:-arkyra_secure_password_change_in_production}@arkyra-postgres:5432/arkyra_db
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-arkyra_redis_password}@arkyra-redis:6379
+      - TEMPORAL_ADDRESS=arkyra-temporal:7233
+      - GOOGLE_GEMINI_API_KEY=${GOOGLE_GEMINI_API_KEY}
+    networks:
+      - arkyra-network
+    depends_on:
+      - arkyra-postgres
+      - arkyra-redis
+      - arkyra-temporal
+
+  # Nginx Reverse Proxy
+  arkyra-nginx:
+    image: nginx:alpine
+    container_name: arkyra-nginx
+    restart: always
+    ports:
+      - "4007:80"
+    volumes:
+      - ./nginx.arkyra.conf:/etc/nginx/nginx.conf:ro
+      - arkyra-uploads:/uploads:ro
+    networks:
+      - arkyra-network
+    depends_on:
+      - arkyra-frontend
+      - arkyra-backend
+
+volumes:
+  arkyra-postgres-data:
+    driver: local
+  arkyra-redis-data:
+    driver: local
+  arkyra-uploads:
+    driver: local
+
+networks:
+  arkyra-network:
+    driver: bridge
