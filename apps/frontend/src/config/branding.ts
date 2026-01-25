@@ -40,7 +40,7 @@ export const BRANDING_CONFIG: Record<BrandType, BrandingConfig> = {
     website: 'https://internal.aljazeera.com/arkyra',
     logo: {
       light: '/logos/aj-arkyra-light.svg',
-      dark: '/logos/aj-arkyra-dark.svg',
+      dark: '/logos/aj-arkyra-light.svg',
     },
     colors: {
       primary: '#001969', // Al Jazeera Blue
@@ -62,8 +62,8 @@ export const BRANDING_CONFIG: Record<BrandType, BrandingConfig> = {
     description: 'Enterprise Social Media Management Platform',
     website: 'https://arkyra.pro',
     logo: {
-      light: '/logos/arkyra-pulse-light.svg',
-      dark: '/logos/arkyra-pulse-dark.svg',
+      light: '/logos/arkyra-pulse-light.png',
+      dark: '/logos/arkyra-pulse-light.png',
     },
     colors: {
       primary: '#001969', // Primary Blue
