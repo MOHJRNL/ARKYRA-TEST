@@ -3,10 +3,28 @@ import OpenAI from 'openai';
 import { shuffle } from 'lodash';
 import { zodResponseFormat } from 'openai/helpers/zod';
 import { z } from 'zod';
+import { AIProviderService, AIProvider } from '../ai/ai.provider.service';
 
+// Backward compatibility: Keep OpenAI client for existing code
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || 'sk-proj-',
 });
+
+/**
+ * OpenAI Service
+ * 
+ * This service provides AI-powered features for ARKYRA.
+ * It now supports multiple AI providers through AIProviderService.
+ * 
+ * Supported Providers:
+ * - OpenAI (GPT-4.1, DALL-E 3)
+ * - Google Gemini (Recommended for cost-effectiveness)
+ * - Anthropic Claude (Best for long-form content)
+ * - Groq (Fastest inference)
+ * - Mistral AI (European alternative)
+ * 
+ * See AI_MODELS_GUIDE.md for detailed provider comparison and setup.
+ */
 
 const PicturePrompt = z.object({
   prompt: z.string(),
