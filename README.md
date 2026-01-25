@@ -78,7 +78,8 @@ ARKYRA is an enterprise-grade social media management platform built on the foun
 ### Core Capabilities
 
 - **Multi-Platform Scheduling**: Schedule posts across 14+ social media platforms
-- **AI Content Generation**: Leverage Google Gemini API for intelligent content creation
+- **Flexible AI Integration**: Support for 5+ AI providers (OpenAI, Anthropic, Google Gemini, Groq, Mistral)
+- **AI Content Generation**: Intelligent content creation, image generation, and optimization
 - **Analytics & Insights**: Comprehensive analytics to measure your social media performance
 - **Team Collaboration**: Invite team members, assign roles, and collaborate on content
 - **RTL Support**: Full right-to-left layout support for Arabic and other RTL languages
@@ -161,9 +162,11 @@ To deploy ARKYRA on your domain (arkyra.pro), follow the comprehensive [Cloudfla
 
 ## 📚 Documentation
 
+- **[AI Models Guide](./AI_MODELS_GUIDE.md)**: Complete guide to AI providers and models
 - **[Deployment Guide](./DEPLOYMENT_GUIDE.md)**: Complete deployment instructions
 - **[Cloudflare DNS Setup](./CLOUDFLARE_DNS_SETUP.md)**: Domain configuration guide
 - **[Project README](./ARKYRA_PROJECT_README.md)**: Project overview and architecture
+- **[AI Dependencies](./AI_DEPENDENCIES.md)**: NPM packages for AI providers
 - **[Implementation Roadmap](./arkyra_research/05_implementation_roadmap.md)**: Phased development plan
 
 ## 🎨 Branding & Customization
