@@ -162,11 +162,22 @@ To deploy ARKYRA on your domain (arkyra.pro), follow the comprehensive [Cloudfla
 
 ## 📚 Documentation
 
+### Development & Deployment
+
+- **[Development and Deployment Guide](./DEVELOPMENT_AND_DEPLOYMENT.md)**: Central guide for all development and deployment methods
+- **[Deploy on Hetzner](./DEPLOY-ON-HETZNER.md)**: Production deployment for Al Jazeera internal platform
+- **[Deploy on Railway](./DEPLOY-ON-RAILWAY.md)**: Staging and testing environment setup
+- **[Deploy on Google Cloud](./DEPLOY-ON-GCP.md)**: GCP deployment options (Cloud Run, GKE, GCE)
+
+### Configuration & Setup
+
 - **[AI Models Guide](./AI_MODELS_GUIDE.md)**: Complete guide to AI providers and models
-- **[Deployment Guide](./DEPLOYMENT_GUIDE.md)**: Complete deployment instructions
 - **[Cloudflare DNS Setup](./CLOUDFLARE_DNS_SETUP.md)**: Domain configuration guide
-- **[Project README](./ARKYRA_PROJECT_README.md)**: Project overview and architecture
 - **[AI Dependencies](./AI_DEPENDENCIES.md)**: NPM packages for AI providers
+
+### Project Documentation
+
+- **[Project README](./ARKYRA_PROJECT_README.md)**: Project overview and architecture
 - **[Implementation Roadmap](./arkyra_research/05_implementation_roadmap.md)**: Phased development plan
 
 ## 🎨 Branding & Customization
