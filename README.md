@@ -24,20 +24,20 @@
 
 <div class="flex" align="center">
   <br />
-  <img alt="Instagram" src="https://postiz.com/svgs/socials/Instagram.svg" width="32">
-  <img alt="Youtube" src="https://postiz.com/svgs/socials/Youtube.svg" width="32">
-  <img alt="Dribbble" src="https://postiz.com/svgs/socials/Dribbble.svg" width="32">
-  <img alt="Linkedin" src="https://postiz.com/svgs/socials/Linkedin.svg" width="32">
-  <img alt="Reddit" src="https://postiz.com/svgs/socials/Reddit.svg" width="32">
-  <img alt="TikTok" src="https://postiz.com/svgs/socials/TikTok.svg" width="32">
-  <img alt="Facebook" src="https://postiz.com/svgs/socials/Facebook.svg" width="32">
-  <img alt="Pinterest" src="https://postiz.com/svgs/socials/Pinterest.svg" width="32">
-  <img alt="Threads" src="https://postiz.com/svgs/socials/Threads.svg" width="32">
-  <img alt="X" src="https://postiz.com/svgs/socials/X.svg" width="32">
-  <img alt="Slack" src="https://postiz.com/svgs/socials/Slack.svg" width="32">
-  <img alt="Discord" src="https://postiz.com/svgs/socials/Discord.svg" width="32">
-  <img alt="Mastodon" src="https://postiz.com/svgs/socials/Mastodon.svg" width="32">
-  <img alt="Bluesky" src="https://postiz.com/svgs/socials/Bluesky.svg" width="32">
+  <img alt="Instagram" src="./apps/frontend/public/icons/platforms/instagram.png" width="32">
+  <img alt="Youtube" src="./apps/frontend/public/icons/platforms/youtube.png" width="32">
+  <img alt="Dribbble" src="./apps/frontend/public/icons/platforms/dribbble.png" width="32">
+  <img alt="Linkedin" src="./apps/frontend/public/icons/platforms/linkedin.png" width="32">
+  <img alt="Reddit" src="./apps/frontend/public/icons/platforms/reddit.png" width="32">
+  <img alt="TikTok" src="./apps/frontend/public/icons/platforms/tiktok.png" width="32">
+  <img alt="Facebook" src="./apps/frontend/public/icons/platforms/facebook.png" width="32">
+  <img alt="Pinterest" src="./apps/frontend/public/icons/platforms/pinterest.png" width="32">
+  <img alt="Threads" src="./apps/frontend/public/icons/platforms/threads.png" width="32">
+  <img alt="X" src="./apps/frontend/public/icons/platforms/x.png" width="32">
+  <img alt="Slack" src="./apps/frontend/public/icons/platforms/slack.png" width="32">
+  <img alt="Discord" src="./apps/frontend/public/icons/platforms/discord.png" width="32">
+  <img alt="Mastodon" src="./apps/frontend/public/icons/platforms/mastodon.png" width="32">
+  <img alt="Bluesky" src="./apps/frontend/public/icons/platforms/bluesky.png" width="32">
 </div>
 
 <p align="center">
@@ -178,7 +178,6 @@ To deploy ARKYRA on your domain (arkyra.pro), follow the comprehensive [Cloudfla
 ### Project Documentation
 
 - **[Project README](./ARKYRA_PROJECT_README.md)**: Project overview and architecture
-- **[Implementation Roadmap](./arkyra_research/05_implementation_roadmap.md)**: Phased development plan
 
 ## 🎨 Branding & Customization
 
