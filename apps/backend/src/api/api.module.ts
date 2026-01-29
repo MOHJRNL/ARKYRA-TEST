@@ -31,6 +31,7 @@ import { AutopostController } from '@gitroom/backend/api/routes/autopost.control
 import { SetsController } from '@gitroom/backend/api/routes/sets.controller';
 import { ThirdPartyController } from '@gitroom/backend/api/routes/third-party.controller';
 import { AIRouterController } from '@gitroom/backend/api/routes/ai-router.controller';
+import { AIRouterModule } from '@gitroom/nestjs-libraries/ai-router';
 import { MonitorController } from '@gitroom/backend/api/routes/monitor.controller';
 
 const authenticatedController = [
@@ -51,7 +52,7 @@ const authenticatedController = [
   AIRouterController,
 ];
 @Module({
-  imports: [UploadModule],
+  imports: [UploadModule, AIRouterModule],
   controllers: [
     RootController,
     StripeController,
