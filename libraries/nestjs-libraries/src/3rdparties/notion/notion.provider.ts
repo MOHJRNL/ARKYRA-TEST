@@ -152,11 +152,11 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
    * Create a new page in Notion
    */
   private async createPage(apiKey: string, data: NotionData): Promise<string> {
-    const response = await fetch(`${this.baseUrl}/pages`, {
+    const response = await fetch(`${NOTION_BASE_URL}/pages`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
-        'Notion-Version': this.notionVersion,
+        'Notion-Version': NOTION_VERSION,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -185,11 +185,11 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
       throw new Error('page_id is required for update_page action');
     }
 
-    const response = await fetch(`${this.baseUrl}/pages/${data.page_id}`, {
+    const response = await fetch(`${NOTION_BASE_URL}/pages/${data.page_id}`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
-        'Notion-Version': this.notionVersion,
+        'Notion-Version': NOTION_VERSION,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -247,11 +247,11 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
       throw new Error('page_id is required for create_database action');
     }
 
-    const response = await fetch(`${this.baseUrl}/databases`, {
+    const response = await fetch(`${NOTION_BASE_URL}/databases`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
-        'Notion-Version': this.notionVersion,
+        'Notion-Version': NOTION_VERSION,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
