@@ -44,7 +44,7 @@ interface MurfVoice {
   fields: [],
 })
 export class MurfProvider extends ThirdPartyAbstract<MurfAudioData> {
-  private readonly baseUrl = 'https://api.murf.ai/v1';
+  private readonly baseUrl: string = 'https://api.murf.ai/v1';
 
   /**
    * Check if the API key is valid by fetching user information
@@ -103,7 +103,7 @@ export class MurfProvider extends ThirdPartyAbstract<MurfAudioData> {
       const data = await response.json();
       return data.voices || [];
     } catch (error) {
-      throw new Error(`Failed to fetch voices: ${error.message}`);
+      throw new Error(`Failed to fetch voices: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -174,7 +174,7 @@ export class MurfProvider extends ThirdPartyAbstract<MurfAudioData> {
 
       throw new Error('Speech generation timeout');
     } catch (error) {
-      throw new Error(`Failed to generate audio: ${error.message}`);
+      throw new Error(`Failed to generate audio: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 }

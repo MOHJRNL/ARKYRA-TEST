@@ -146,10 +146,10 @@ export class MakeProvider extends ThirdPartyAbstract<MakeWebhookData> {
           : JSON.stringify(responseData)
       }`;
     } catch (error) {
-      if (error.name === 'AbortError') {
+      if (error instanceof Error && error.name === 'AbortError') {
         throw new Error('Make webhook timeout');
       }
-      throw new Error(`Failed to trigger Make webhook: ${error.message}`);
+      throw new Error(`Failed to trigger Make webhook: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 

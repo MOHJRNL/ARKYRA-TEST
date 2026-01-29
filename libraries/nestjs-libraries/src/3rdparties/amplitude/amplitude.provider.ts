@@ -118,7 +118,7 @@ export class AmplitudeProvider extends ThirdPartyAbstract<AmplitudeData> {
           throw new Error(`Unknown action: ${data.action}`);
       }
     } catch (error) {
-      throw new Error(`Failed to perform Amplitude action: ${error.message}`);
+      throw new Error(`Failed to perform Amplitude action: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 

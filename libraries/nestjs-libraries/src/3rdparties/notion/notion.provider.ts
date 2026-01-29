@@ -41,8 +41,8 @@ interface NotionDatabase {
   fields: [],
 })
 export class NotionProvider extends ThirdPartyAbstract<NotionData> {
-  private readonly baseUrl = 'https://api.notion.com/v1';
-  private readonly notionVersion = '2022-06-28';
+  private readonly baseUrl: string = 'https://api.notion.com/v1';
+  private readonly notionVersion: string = '2022-06-28';
 
   /**
    * Check if the API key is valid by fetching user information
@@ -108,7 +108,7 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
       const data = await response.json();
       return data.results || [];
     } catch (error) {
-      throw new Error(`Failed to fetch databases: ${error.message}`);
+      throw new Error(`Failed to fetch databases: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -137,7 +137,7 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
           throw new Error(`Unknown action: ${data.action}`);
       }
     } catch (error) {
-      throw new Error(`Failed to perform Notion action: ${error.message}`);
+      throw new Error(`Failed to perform Notion action: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 

@@ -99,7 +99,7 @@ export class AirtableProvider extends ThirdPartyAbstract<AirtableData> {
       const data = await response.json();
       return data.bases || [];
     } catch (error) {
-      throw new Error(`Failed to fetch bases: ${error.message}`);
+      throw new Error(`Failed to fetch bases: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -130,7 +130,7 @@ export class AirtableProvider extends ThirdPartyAbstract<AirtableData> {
           throw new Error(`Unknown action: ${data.action}`);
       }
     } catch (error) {
-      throw new Error(`Failed to perform Airtable action: ${error.message}`);
+      throw new Error(`Failed to perform Airtable action: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 

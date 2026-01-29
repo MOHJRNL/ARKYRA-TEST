@@ -33,7 +33,7 @@ interface GA4Data {
   fields: [],
 })
 export class GA4Provider extends ThirdPartyAbstract<GA4Data> {
-  private readonly baseUrl = 'https://analyticsdata.googleapis.com/v1beta';
+  private readonly baseUrl: string = 'https://analyticsdata.googleapis.com/v1beta';
 
   /**
    * Check if the API key is valid by testing API access
@@ -110,7 +110,7 @@ export class GA4Provider extends ThirdPartyAbstract<GA4Data> {
       const result = await response.json();
       return JSON.stringify(result, null, 2);
     } catch (error) {
-      throw new Error(`Failed to run GA4 report: ${error.message}`);
+      throw new Error(`Failed to run GA4 report: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -160,7 +160,7 @@ export class GA4Provider extends ThirdPartyAbstract<GA4Data> {
       const result = await response.json();
       return JSON.stringify(result, null, 2);
     } catch (error) {
-      throw new Error(`Failed to run GA4 realtime report: ${error.message}`);
+      throw new Error(`Failed to run GA4 realtime report: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -194,7 +194,7 @@ export class GA4Provider extends ThirdPartyAbstract<GA4Data> {
       const result = await response.json();
       return JSON.stringify(result, null, 2);
     } catch (error) {
-      throw new Error(`Failed to get GA4 metadata: ${error.message}`);
+      throw new Error(`Failed to get GA4 metadata: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 }

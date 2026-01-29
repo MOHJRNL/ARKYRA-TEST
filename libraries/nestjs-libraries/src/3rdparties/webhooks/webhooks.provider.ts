@@ -104,7 +104,7 @@ export class WebhooksProvider extends ThirdPartyAbstract<WebhookData> {
       };
 
       // Only add body for methods that support it
-      if (method !== 'GET' && method !== 'HEAD' && data.body) {
+      if (method !== 'GET' && data.body) {
         requestInit.body = typeof data.body === 'string'
           ? data.body
           : JSON.stringify(data.body);
@@ -135,10 +135,10 @@ export class WebhooksProvider extends ThirdPartyAbstract<WebhookData> {
 
       return JSON.stringify(responseData, null, 2);
     } catch (error) {
-      if (error.name === 'AbortError') {
+      if (error instanceof Error && error.name === 'AbortError') {
         throw new Error('Webhook request timeout');
       }
-      throw new Error(`Failed to send webhook: ${error.message}`);
+      throw new Error(`Failed to send webhook: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -174,7 +174,7 @@ export class WebhooksProvider extends ThirdPartyAbstract<WebhookData> {
     } catch (error) {
       return {
         success: false,
-        message: `Test webhook failed: ${error.message}`,
+        message: `Test webhook failed: ${error instanceof Error ? error.message : String(error)}`,
       };
     }
   }

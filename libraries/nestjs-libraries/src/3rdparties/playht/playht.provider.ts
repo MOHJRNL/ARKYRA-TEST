@@ -44,7 +44,7 @@ interface PlayHTVoice {
   fields: [],
 })
 export class PlayHTProvider extends ThirdPartyAbstract<PlayHTAudioData> {
-  private readonly baseUrl = 'https://api.play.ht/api/v2';
+  private readonly baseUrl: string = 'https://api.play.ht/api/v2';
 
   /**
    * Check if the API key is valid by fetching user information
@@ -113,7 +113,7 @@ export class PlayHTProvider extends ThirdPartyAbstract<PlayHTAudioData> {
       const data = await response.json();
       return data || [];
     } catch (error) {
-      throw new Error(`Failed to fetch voices: ${error.message}`);
+      throw new Error(`Failed to fetch voices: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -188,7 +188,7 @@ export class PlayHTProvider extends ThirdPartyAbstract<PlayHTAudioData> {
 
       throw new Error('TTS generation timeout');
     } catch (error) {
-      throw new Error(`Failed to generate audio: ${error.message}`);
+      throw new Error(`Failed to generate audio: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 }

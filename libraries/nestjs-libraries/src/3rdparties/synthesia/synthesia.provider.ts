@@ -54,7 +54,7 @@ interface SynthesiaVoice {
   fields: [],
 })
 export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
-  private readonly baseUrl = 'https://api.synthesia.io/v2';
+  private readonly baseUrl: string = 'https://api.synthesia.io/v2';
 
   /**
    * Check if the API key is valid by fetching user information
@@ -113,7 +113,7 @@ export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
       const data = await response.json();
       return data.avatars || [];
     } catch (error) {
-      throw new Error(`Failed to fetch avatars: ${error.message}`);
+      throw new Error(`Failed to fetch avatars: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -140,7 +140,7 @@ export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
       const data = await response.json();
       return data.voices || [];
     } catch (error) {
-      throw new Error(`Failed to fetch voices: ${error.message}`);
+      throw new Error(`Failed to fetch voices: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -218,7 +218,7 @@ export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
 
       throw new Error('Video generation timeout');
     } catch (error) {
-      throw new Error(`Failed to create video: ${error.message}`);
+      throw new Error(`Failed to create video: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 }

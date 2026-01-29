@@ -103,7 +103,7 @@ export class ElevenLabsProvider extends ThirdPartyAbstract<ElevenLabsAudioData> 
       const data = await response.json();
       return data.voices || [];
     } catch (error) {
-      throw new Error(`Failed to fetch voices: ${error.message}`);
+      throw new Error(`Failed to fetch voices: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -179,7 +179,7 @@ export class ElevenLabsProvider extends ThirdPartyAbstract<ElevenLabsAudioData> 
       const base64Audio = Buffer.from(audioBuffer).toString('base64');
       return `data:audio/mpeg;base64,${base64Audio}`;
     } catch (error) {
-      throw new Error(`Failed to generate audio: ${error.message}`);
+      throw new Error(`Failed to generate audio: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 }

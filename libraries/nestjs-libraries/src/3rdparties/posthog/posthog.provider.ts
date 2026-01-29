@@ -42,7 +42,7 @@ interface PostHogEvent {
   fields: [],
 })
 export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
-  private readonly baseUrl = 'https://app.posthog.com';
+  private readonly baseUrl: string = 'https://app.posthog.com';
 
   /**
    * Check if the API key is valid by testing API access
@@ -119,7 +119,7 @@ export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
           throw new Error(`Unknown action: ${data.action}`);
       }
     } catch (error) {
-      throw new Error(`Failed to perform PostHog action: ${error.message}`);
+      throw new Error(`Failed to perform PostHog action: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 

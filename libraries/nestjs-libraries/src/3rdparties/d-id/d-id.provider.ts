@@ -115,7 +115,7 @@ export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
       const data = await response.json();
       return data.images || [];
     } catch (error) {
-      throw new Error(`Failed to fetch presenters: ${error.message}`);
+      throw new Error(`Failed to fetch presenters: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -142,7 +142,7 @@ export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
       const data = await response.json();
       return data || [];
     } catch (error) {
-      throw new Error(`Failed to fetch voices: ${error.message}`);
+      throw new Error(`Failed to fetch voices: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -222,7 +222,7 @@ export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
 
       throw new Error('Talk generation timeout');
     } catch (error) {
-      throw new Error(`Failed to create talk: ${error.message}`);
+      throw new Error(`Failed to create talk: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 }

@@ -42,7 +42,7 @@ interface RunwayTask {
   fields: [],
 })
 export class RunwayProvider extends ThirdPartyAbstract<RunwayGenerationData> {
-  private readonly baseUrl = 'https://api.runwayml.com/v1';
+  private readonly baseUrl: string = 'https://api.runwayml.com/v1';
 
   /**
    * Check if the API key is valid by fetching user information
@@ -176,7 +176,7 @@ export class RunwayProvider extends ThirdPartyAbstract<RunwayGenerationData> {
 
       throw new Error('Generation timeout');
     } catch (error) {
-      throw new Error(`Failed to generate video: ${error.message}`);
+      throw new Error(`Failed to generate video: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 }

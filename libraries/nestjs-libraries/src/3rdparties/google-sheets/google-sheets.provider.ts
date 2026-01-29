@@ -40,7 +40,7 @@ interface SpreadsheetInfo {
   fields: [],
 })
 export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
-  private readonly baseUrl = 'https://sheets.googleapis.com/v4';
+  private readonly baseUrl: string = 'https://sheets.googleapis.com/v4';
 
   /**
    * Check if the API key is valid by testing API access
@@ -118,7 +118,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
         })),
       };
     } catch (error) {
-      throw new Error(`Failed to get spreadsheet: ${error.message}`);
+      throw new Error(`Failed to get spreadsheet: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -149,7 +149,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
           throw new Error(`Unknown action: ${data.action}`);
       }
     } catch (error) {
-      throw new Error(`Failed to perform Google Sheets action: ${error.message}`);
+      throw new Error(`Failed to perform Google Sheets action: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 

@@ -33,7 +33,7 @@ interface LookerStudioData {
   fields: [],
 })
 export class LookerStudioProvider extends ThirdPartyAbstract<LookerStudioData> {
-  private readonly baseUrl = 'https://datastudio.googleapis.com/v1';
+  private readonly baseUrl: string = 'https://datastudio.googleapis.com/v1';
 
   /**
    * Check if the API key is valid
@@ -90,7 +90,7 @@ export class LookerStudioProvider extends ThirdPartyAbstract<LookerStudioData> {
           throw new Error(`Unknown action: ${data.action}`);
       }
     } catch (error) {
-      throw new Error(`Failed to perform Looker Studio action: ${error.message}`);
+      throw new Error(`Failed to perform Looker Studio action: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 

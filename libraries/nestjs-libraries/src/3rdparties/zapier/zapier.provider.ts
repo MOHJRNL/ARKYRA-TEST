@@ -121,10 +121,10 @@ export class ZapierProvider extends ThirdPartyAbstract<ZapierWebhookData> {
 
       return `Zapier webhook triggered successfully: ${responseText || 'OK'}`;
     } catch (error) {
-      if (error.name === 'AbortError') {
+      if (error instanceof Error && error.name === 'AbortError') {
         throw new Error('Zapier webhook timeout');
       }
-      throw new Error(`Failed to trigger Zapier webhook: ${error.message}`);
+      throw new Error(`Failed to trigger Zapier webhook: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
@@ -151,7 +151,7 @@ export class ZapierProvider extends ThirdPartyAbstract<ZapierWebhookData> {
 
       return `Successfully sent ${results.length} events to Zapier`;
     } catch (error) {
-      throw new Error(`Failed to batch send to Zapier: ${error.message}`);
+      throw new Error(`Failed to batch send to Zapier: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 }

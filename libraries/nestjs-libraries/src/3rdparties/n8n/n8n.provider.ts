@@ -144,10 +144,10 @@ export class N8nProvider extends ThirdPartyAbstract<N8nWebhookData> {
           : JSON.stringify(responseData)
       }`;
     } catch (error) {
-      if (error.name === 'AbortError') {
+      if (error instanceof Error && error.name === 'AbortError') {
         throw new Error('n8n webhook timeout');
       }
-      throw new Error(`Failed to trigger n8n webhook: ${error.message}`);
+      throw new Error(`Failed to trigger n8n webhook: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
 
