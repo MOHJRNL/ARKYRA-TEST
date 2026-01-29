@@ -1,0 +1,385 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - generic [ref=e140]:
+      - generic [ref=e141]:
+        - generic [ref=e142]: Design Media
+        - button [ref=e143] [cursor=pointer]:
+          - img [ref=e144]
+      - generic [ref=e148]:
+        - generic [ref=e150]:
+          - generic [ref=e152]:
+            - generic [ref=e153] [cursor=pointer]:
+              - img [ref=e156]
+              - generic [ref=e158]: Templates
+            - generic [ref=e159] [cursor=pointer]:
+              - img [ref=e162]
+              - generic [ref=e164]: Text
+            - generic [ref=e165] [cursor=pointer]:
+              - img [ref=e168]
+              - generic [ref=e170]: Photos
+            - generic [ref=e171] [cursor=pointer]:
+              - img [ref=e174]
+              - generic [ref=e176]: Elements
+            - generic [ref=e177] [cursor=pointer]:
+              - img [ref=e180]
+              - generic [ref=e182]: Draw
+            - generic [ref=e183] [cursor=pointer]:
+              - img [ref=e186]
+              - generic [ref=e188]: Upload
+            - generic [ref=e189] [cursor=pointer]:
+              - img [ref=e192]
+              - generic [ref=e194]: Background
+            - generic [ref=e195] [cursor=pointer]:
+              - img [ref=e198]
+              - generic [ref=e200]: Layers
+            - generic [ref=e201] [cursor=pointer]:
+              - img [ref=e204]
+              - generic [ref=e206]: Resize
+            - generic [ref=e207] [cursor=pointer]:
+              - img [ref=e210]
+              - generic [ref=e212]: AI Img
+          - generic [ref=e214]:
+            - generic [ref=e215]:
+              - img [ref=e217]
+              - searchbox "Search..." [ref=e219]
+            - paragraph [ref=e220]:
+              - text: Photos by
+              - link "Unsplash ↗" [ref=e221] [cursor=pointer]:
+                - /url: https://unsplash.com/
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - generic [ref=e225]:
+                  - img "Man crouching with mountains in background" [ref=e226] [cursor=pointer]
+                  - generic [ref=e228]:
+                    - text: Photo by
+                    - link "Samsung Memory US ↗" [ref=e229] [cursor=pointer]:
+                      - /url: https://unsplash.com/@samsungmemoryus?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e230] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e232]:
+                  - img "Modern living room with tan leather chairs and fireplace." [ref=e233] [cursor=pointer]
+                  - generic [ref=e235]:
+                    - text: Photo by
+                    - link "Clay Banks ↗" [ref=e236] [cursor=pointer]:
+                      - /url: https://unsplash.com/@claybanks?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e237] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e239]:
+                  - img "Modern bedroom with a unique brown bed and chair." [ref=e240] [cursor=pointer]
+                  - generic [ref=e242]:
+                    - text: Photo by
+                    - link "Caroline Badran ↗" [ref=e243] [cursor=pointer]:
+                      - /url: https://unsplash.com/@___atmos?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e244] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e246]:
+                  - img "Yellow ginkgo leaves against a blue sky" [ref=e247] [cursor=pointer]
+                  - generic [ref=e249]:
+                    - text: Photo by
+                    - link "insung yoon ↗" [ref=e250] [cursor=pointer]:
+                      - /url: https://unsplash.com/@insungpandora?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e251] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e253]:
+                  - img "Tall tree with yellow leaves and sunburst" [ref=e254] [cursor=pointer]
+                  - generic [ref=e256]:
+                    - text: Photo by
+                    - link "insung yoon ↗" [ref=e257] [cursor=pointer]:
+                      - /url: https://unsplash.com/@insungpandora?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e258] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e260]:
+                  - img "Bright orange moon rising over silhouetted trees at night" [ref=e261] [cursor=pointer]
+                  - generic [ref=e263]:
+                    - text: Photo by
+                    - link "Maksim Samuilionak ↗" [ref=e264] [cursor=pointer]:
+                      - /url: https://unsplash.com/@maksim_taawy?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e265] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e267]:
+                  - img "A young woman looks up thoughtfully against dark background." [ref=e268] [cursor=pointer]
+                  - generic [ref=e270]:
+                    - text: Photo by
+                    - link "Hamed Farahpour ↗" [ref=e271] [cursor=pointer]:
+                      - /url: https://unsplash.com/@hamed_farahpour?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e272] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e274]:
+                  - img "Teal pendant light hangs above modern dining set." [ref=e275] [cursor=pointer]
+                  - generic [ref=e277]:
+                    - text: Photo by
+                    - link "Mailchimp ↗" [ref=e278] [cursor=pointer]:
+                      - /url: https://unsplash.com/@mailchimp?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e279] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e281]:
+                  - img "Modern office buildings in a bustling city square" [ref=e282] [cursor=pointer]
+                  - generic [ref=e284]:
+                    - text: Photo by
+                    - link "Chris Kursikowski ↗" [ref=e285] [cursor=pointer]:
+                      - /url: https://unsplash.com/@c3k?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e286] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e288]:
+                  - img "Full moon rising over a dark, silhouetted mountain ridge." [ref=e289] [cursor=pointer]
+                  - generic [ref=e291]:
+                    - text: Photo by
+                    - link "insung yoon ↗" [ref=e292] [cursor=pointer]:
+                      - /url: https://unsplash.com/@insungpandora?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e293] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+              - generic [ref=e294]:
+                - generic [ref=e296]:
+                  - img "Abstract pattern of ice with bubbles" [ref=e297] [cursor=pointer]
+                  - generic [ref=e299]:
+                    - text: Photo by
+                    - link "Lianhao Qu ↗" [ref=e300] [cursor=pointer]:
+                      - /url: https://unsplash.com/@lianhao?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e301] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e303]:
+                  - img "Cowgirl rides horse with american flag on beach." [ref=e304] [cursor=pointer]
+                  - generic [ref=e306]:
+                    - text: Photo by
+                    - link "Tim Mossholder ↗" [ref=e307] [cursor=pointer]:
+                      - /url: https://unsplash.com/@timmossholder?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e308] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e310]:
+                  - img "a large building with two towers lit up at night" [ref=e311] [cursor=pointer]
+                  - generic [ref=e313]:
+                    - text: Photo by
+                    - link "Eduard Pretsi ↗" [ref=e314] [cursor=pointer]:
+                      - /url: https://unsplash.com/@eduard199x?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e315] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e317]:
+                  - img "Man petting a dog with boxes in background" [ref=e318] [cursor=pointer]
+                  - generic [ref=e320]:
+                    - text: Photo by
+                    - link "Land O'Lakes, Inc. ↗" [ref=e321] [cursor=pointer]:
+                      - /url: https://unsplash.com/@landolakesinc?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e322] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e324]:
+                  - img "Modern living room with fireplace and forest view" [ref=e325] [cursor=pointer]
+                  - generic [ref=e327]:
+                    - text: Photo by
+                    - link "Clay Banks ↗" [ref=e328] [cursor=pointer]:
+                      - /url: https://unsplash.com/@claybanks?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e329] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e331]:
+                  - img "a black and white photo of a tall building" [ref=e332] [cursor=pointer]
+                  - generic [ref=e334]:
+                    - text: Photo by
+                    - link "Eduard Pretsi ↗" [ref=e335] [cursor=pointer]:
+                      - /url: https://unsplash.com/@eduard199x?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e336] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e338]:
+                  - img "Abstract pattern of many small and large spheres." [ref=e339] [cursor=pointer]
+                  - generic [ref=e341]:
+                    - text: Photo by
+                    - link "Point Normal ↗" [ref=e342] [cursor=pointer]:
+                      - /url: https://unsplash.com/@normals?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e343] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e345]:
+                  - img "A dense star cluster in the night sky." [ref=e346] [cursor=pointer]
+                  - generic [ref=e348]:
+                    - text: Photo by
+                    - link "Steve Busch ↗" [ref=e349] [cursor=pointer]:
+                      - /url: https://unsplash.com/@sdbusch77?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e350] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e352]:
+                  - img "Hexagonal basalt columns with water pools" [ref=e353] [cursor=pointer]
+                  - generic [ref=e355]:
+                    - text: Photo by
+                    - link "Adrien Olichon ↗" [ref=e356] [cursor=pointer]:
+                      - /url: https://unsplash.com/@adrienolichon?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e357] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+                - generic [ref=e359]:
+                  - img "Runners embrace after a race, possibly cold, competition." [ref=e360] [cursor=pointer]
+                  - generic [ref=e362]:
+                    - text: Photo by
+                    - link "Mathias Reding ↗" [ref=e363] [cursor=pointer]:
+                      - /url: https://unsplash.com/@matreding?utm_source=polotno&utm_medium=referral
+                    - text: "on"
+                    - link "Unsplash ↗" [ref=e364] [cursor=pointer]:
+                      - /url: https://unsplash.com/?utm_source=polotno&utm_medium=referral
+          - generic [ref=e365] [cursor=pointer]:
+            - img [ref=e366]
+            - generic [ref=e368]: <
+        - generic [ref=e369]:
+          - generic [ref=e371]:
+            - generic [ref=e372]:
+              - button "Undo" [ref=e373] [cursor=pointer]:
+                - img [ref=e375]
+              - button "Redo" [disabled] [ref=e377]:
+                - img [ref=e379]
+            - generic [ref=e381]:
+              - button "Position" [disabled] [ref=e383]:
+                - img [ref=e385]
+                - generic [ref=e387]: Position
+              - button "Transparency" [disabled] [ref=e390]:
+                - img [ref=e392]
+              - button "Object is unlocked. Lock it to prevent changes from canvas." [disabled] [ref=e395]:
+                - img [ref=e397]
+              - button "Duplicate elements" [disabled] [ref=e400]:
+                - img [ref=e402]
+              - button "Remove elements" [disabled] [ref=e405]:
+                - img [ref=e407]
+              - button "Copy style" [disabled] [ref=e410]:
+                - img [ref=e412]
+              - button "Use this media" [ref=e418] [cursor=pointer]:
+                - generic [ref=e419]: Use this media
+          - generic [ref=e425]:
+            - button "Duplicate page" [ref=e427] [cursor=pointer]:
+              - img [ref=e429]
+            - button "Add page" [ref=e432] [cursor=pointer]:
+              - img [ref=e434]
+          - generic [ref=e438]:
+            - button "Zoom out" [ref=e439] [cursor=pointer]:
+              - img [ref=e441]
+            - button "Zoom level" [ref=e444] [cursor=pointer]:
+              - generic [ref=e445]: 80%
+            - button "Zoom in" [ref=e446] [cursor=pointer]:
+              - img [ref=e448]
+    - generic [ref=e6]:
+      - generic [ref=e9]:
+        - img "Arkyra Digital Command Center" [ref=e11]
+        - generic:
+          - link "Calendar":
+            - /url: /launches
+            - generic:
+              - img
+            - generic: Calendar
+          - link "Agent":
+            - /url: /agents
+            - generic:
+              - img
+            - generic: Agent
+          - link "Analytics":
+            - /url: /analytics
+            - generic:
+              - img
+            - generic: Analytics
+          - link "Media":
+            - /url: /media
+            - generic:
+              - img
+            - generic: Media
+          - link "Plugs":
+            - /url: /plugs
+            - generic:
+              - img
+            - generic: Plugs
+          - link "Integrations":
+            - /url: /third-party
+            - generic:
+              - img
+            - generic: Integrations
+        - generic:
+          - link "Settings":
+            - /url: /settings
+            - generic:
+              - img
+            - generic: Settings
+      - generic:
+        - generic:
+          - generic:
+            - heading "Agent" [level=1]
+          - generic:
+            - generic:
+              - generic:
+                - img
+            - generic:
+              - img "en"
+            - generic:
+              - generic:
+                - img
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - heading "Select Channels" [level=2]
+                - generic:
+                  - img
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - paragraph: Hello, I am your Arkyra agent 🙌🏻.
+                          - paragraph: I can schedule a post or multiple posts to multiple channels and generate pictures and videos.
+                          - paragraph: You can select the channels you want to use from the left menu.
+                          - paragraph: You can see your previous conversations from the right menu.
+                          - paragraph: You can also use me as an MCP Server, check Settings >> Public API
+                        - generic:
+                          - button "Regenerate response":
+                            - img
+                          - button "Copy to clipboard":
+                            - img
+                          - button "Thumbs up":
+                            - img
+                          - button "Thumbs down":
+                            - img
+                    - contentinfo
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - img
+                          - generic:
+                            - generic:
+                              - generic:
+                                - img
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - img
+                        - generic:
+                          - img
+                  - generic:
+                    - generic:
+                      - textbox "Type a message..."
+                      - generic:
+                        - button [disabled]:
+                          - img
+          - generic:
+            - generic:
+              - generic:
+                - link "Start a new chat":
+                  - /url: /agents
+                  - img
+                  - generic: Start a new chat

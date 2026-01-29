@@ -1,0 +1,7 @@
+# Development SQL configuration
+system.forceSearchAttributesCacheRefreshOnRead:
+  - value: true
+    constraints: {}
+frontend.enableClientVersionCheck:
+  - value: false
+    constraints: {}

@@ -45,7 +45,6 @@ export const countries = [
   { value: 'IN', label: 'India' },
   { value: 'ID', label: 'Indonesia' },
   { value: 'IE', label: 'Ireland' },
-  { value: 'IL', label: 'Israel' },
   { value: 'IT', label: 'Italy' },
   { value: 'JM', label: 'Jamaica' },
   { value: 'JP', label: 'Japan' },

@@ -295,10 +295,10 @@ export const LinkedinPreview: FC<{
         </div>
         <div className="flex flex-col leading-[16px]">
           <div className="text-[14px] font-[500]">{integration?.name}</div>
-          <div className="text-[12px] font-[400] text-[#A3A3A3]">
+          <div className="text-[12px] font-[400] text-textColor opacity-60">
             2,871 followers
           </div>
-          <div className="text-[12px] font-[400] text-[#A3A3A3] flex gap-[4px] items-center">
+          <div className="text-[12px] font-[400] text-textColor opacity-60 flex gap-[4px] items-center">
             <span>30m •</span>
             <span>
               <svg
@@ -345,7 +345,7 @@ export const LinkedinPreview: FC<{
         <div className="gap-[9px] items-center flex">
           <div>4 Comments</div>
           <div>
-            <div className="w-[3px] h-[3px] bg-[#565C65] rounded-full" />
+            <div className="w-[3px] h-[3px] bg-newTableBorder rounded-full" />
           </div>
           <div>8 Reposts</div>
         </div>

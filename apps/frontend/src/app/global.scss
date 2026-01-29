@@ -412,8 +412,9 @@ div div .set-font-family {
   top: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
-  opacity: 30%;
+  opacity: 50%;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .loading-shimmer {
@@ -708,6 +709,144 @@ html[dir='rtl'] [dir='ltr'] {
   color: var(--new-btn-text) !important;
 }
 
+/* ============================================================================
+   Arkyra LINK STYLES - Enhanced for better visibility
+   ============================================================================ */
+
+/* Base link styles */
+a {
+  color: #048FCC;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:hover {
+  color: #F8AB0C;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #235170;
+}
+
+/* Light mode link colors */
+.light a {
+  color: #235170;
+}
+
+.light a:hover {
+  color: #048FCC;
+}
+
+.light a:active {
+  color: #F8AB0C;
+}
+
+/* Dark mode link colors */
+.dark a {
+  color: #048FCC;
+}
+
+.dark a:hover {
+  color: #F8AB0C;
+}
+
+.dark a:active {
+  color: #235170;
+}
+
+/* Community and social links */
+.community-link,
+.social-link,
+a[href*="discord"],
+a[href*="twitter"],
+a[href*="github"],
+a[href*="linkedin"] {
+  color: #048FCC;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.community-link:hover,
+.social-link:hover,
+a[href*="discord"]:hover,
+a[href*="twitter"]:hover,
+a[href*="github"]:hover,
+a[href*="linkedin"]:hover {
+  color: #F8AB0C;
+  text-decoration: underline;
+}
+
+/* Light mode community/social links */
+.light .community-link,
+.light .social-link,
+.light a[href*="discord"],
+.light a[href*="twitter"],
+.light a[href*="github"],
+.light a[href*="linkedin"] {
+  color: #235170;
+}
+
+.light .community-link:hover,
+.light .social-link:hover,
+.light a[href*="discord"]:hover,
+.light a[href*="twitter"]:hover,
+.light a[href*="github"]:hover,
+.light a[href*="linkedin"]:hover {
+  color: #048FCC;
+}
+
+/* Navigation links */
+nav a {
+  color: var(--new-btn-text);
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #048FCC;
+}
+
+.light nav a:hover {
+  color: #235170;
+}
+
+/* Button-style links */
+a.btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: #048FCC;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+a.btn-link:hover {
+  background-color: #F8AB0C;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(217, 119, 87, 0.3);
+}
+
+a.btn-link:active {
+  background-color: #235170;
+  transform: translateY(0);
+}
+
+.light a.btn-link {
+  background-color: #235170;
+}
+
+.light a.btn-link:hover {
+  background-color: #048FCC;
+}
+
+.light a.btn-link:active {
+  background-color: #F8AB0C;
+}
+
 @keyframes marquee-up {
   0% {
     transform: translateY(0);
@@ -780,4 +919,138 @@ html[dir='rtl'] [dir='ltr'] {
 .forceChange .changeColor {
   background: var(--new-btn-primary) !important;
   color: #fff !important;
+}
+
+/* ============================================================================
+   Arkyra AI BUTTON & ICON STYLES
+   ============================================================================ */
+
+/* AI Generation Buttons */
+.ai-btn,
+button[class*="ai"],
+[class*="generate"]:not(.uppy-StatusBar-progress),
+.bg-newColColor {
+  background-color: #048FCC !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease;
+}
+
+.ai-btn:hover,
+button[class*="ai"]:hover,
+[class*="generate"]:hover:not(.uppy-StatusBar-progress),
+.bg-newColColor:hover {
+  background-color: #F8AB0C !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(217, 119, 87, 0.3);
+}
+
+.ai-btn:active,
+button[class*="ai"]:active,
+[class*="generate"]:active:not(.uppy-StatusBar-progress),
+.bg-newColColor:active {
+  background-color: #235170 !important;
+  transform: translateY(0);
+}
+
+/* Light mode AI buttons */
+.light .ai-btn,
+.light button[class*="ai"],
+.light [class*="generate"]:not(.uppy-StatusBar-progress),
+.light .bg-newColColor {
+  background-color: #235170 !important;
+}
+
+.light .ai-btn:hover,
+.light button[class*="ai"]:hover,
+.light [class*="generate"]:hover:not(.uppy-StatusBar-progress),
+.light .bg-newColColor:hover {
+  background-color: #048FCC !important;
+}
+
+.light .ai-btn:active,
+.light button[class*="ai"]:active,
+.light [class*="generate"]:active:not(.uppy-StatusBar-progress),
+.light .bg-newColColor:active {
+  background-color: #F8AB0C !important;
+}
+
+/* AI Icon colors */
+.ai-icon,
+button[class*="ai"] svg,
+[class*="generate"] svg {
+  color: #ffffff !important;
+  stroke: currentColor;
+}
+
+/* Primary action buttons using Arkyra colors */
+button.bg-forth,
+.bg-forth {
+  background-color: #048FCC !important;
+  color: #ffffff !important;
+}
+
+button.bg-forth:hover,
+.bg-forth:hover {
+  background-color: #F8AB0C !important;
+}
+
+button.bg-forth:active,
+.bg-forth:active {
+  background-color: #235170 !important;
+}
+
+.light button.bg-forth,
+.light .bg-forth {
+  background-color: #235170 !important;
+}
+
+.light button.bg-forth:hover,
+.light .bg-forth:hover {
+  background-color: #048FCC !important;
+}
+
+.light button.bg-forth:active,
+.light .bg-forth:active {
+  background-color: #F8AB0C !important;
+}
+
+/* Ensure proper contrast for disabled states */
+.ai-btn:disabled,
+button[class*="ai"]:disabled,
+[class*="generate"]:disabled {
+  background-color: #8c8c8c !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* AI button text should always be visible */
+.ai-btn *,
+button[class*="ai"] *,
+[class*="generate"] * {
+  color: #ffffff !important;
+}
+
+/* Special handling for AI video and image generation buttons */
+.ai-image-btn,
+.ai-video-btn {
+  background-color: #048FCC !important;
+  border-radius: 6px;
+  padding: 8px;
+  transition: all 0.2s ease;
+}
+
+.ai-image-btn:hover,
+.ai-video-btn:hover {
+  background-color: #F8AB0C !important;
+  box-shadow: 0 2px 8px rgba(217, 119, 87, 0.4);
+}
+
+.light .ai-image-btn,
+.light .ai-video-btn {
+  background-color: #235170 !important;
+}
+
+.light .ai-image-btn:hover,
+.light .ai-video-btn:hover {
+  background-color: #048FCC !important;
 }

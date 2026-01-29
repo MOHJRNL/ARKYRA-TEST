@@ -146,12 +146,15 @@ export function RegisterAfter({
     <FormProvider {...form}>
       <form className="flex-1 flex" onSubmit={form.handleSubmit(onSubmit)}>
         <div className="flex flex-col flex-1">
-          <div>
-            <h1 className="text-[40px] font-[500] -tracking-[0.8px] text-start cursor-pointer">
+          <div className="mb-2">
+            <h1 className="text-[42px] font-[600] -tracking-[0.8px] text-start bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               {t('sign_up', 'Sign Up')}
             </h1>
+            <p className="text-gray-400 text-sm mt-2">
+              Create your account to get started.
+            </p>
           </div>
-          <div className="text-[14px] mt-[32px] mb-[12px]">{t('continue_with', 'Continue With')}</div>
+          <div className="text-[14px] font-medium text-gray-300 mt-[32px] mb-[12px]">{t('continue_with', 'Continue With')}</div>
           <div className="flex flex-col">
             {!isAfterProvider &&
               (!isGeneral ? (
@@ -169,11 +172,11 @@ export function RegisterAfter({
               ))}
             {!isAfterProvider && (
               <div className="h-[20px] mb-[24px] mt-[24px] relative">
-                <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
+                <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent top-[50%] -translate-y-[50%]" />
                 <div
                   className={`absolute z-[1] justify-center items-center w-full start-0 -top-[4px] flex`}
                 >
-                  <div className="px-[16px]">
+                  <div className="px-[16px] bg-newBgColorInner text-textColor opacity-60 text-xs font-medium uppercase tracking-wider">
                     {t('or', 'or')}
                   </div>
                 </div>
@@ -209,29 +212,30 @@ export function RegisterAfter({
                   placeholder={t('label_company', 'Company')}
                 />
               </div>
-              <div className={clsx('text-[12px]')}>
+              <div className={clsx('text-[13px] text-gray-400 dark:text-gray-500 leading-relaxed')}>
                 {t(
                   'by_registering_you_agree_to_our',
                   'By registering you agree to our'
                 )}
                 &nbsp;
                 <a
-                  href={`https://postiz.com/terms`}
-                  className="underline hover:font-bold"
+                  href={`https://arkyra.pro/terms`}
+                  className="text-[#048FCC] hover:text-[#235170] dark:text-[#048FCC] dark:hover:text-[#F8AB0C] font-medium transition-colors duration-200 underline decoration-1 underline-offset-2"
                   rel="nofollow"
+                  target="_blank"
                 >
                   {t('terms_of_service', 'Terms of Service')}
                 </a>
                 &nbsp;
                 {t('and', 'and')}&nbsp;
                 <a
-                  href={`https://postiz.com/privacy`}
+                  href={`https://arkyra.pro/privacy`}
                   rel="nofollow"
-                  className="underline hover:font-bold"
+                  target="_blank"
+                  className="text-[#048FCC] hover:text-[#235170] dark:text-[#048FCC] dark:hover:text-[#F8AB0C] font-medium transition-colors duration-200 underline decoration-1 underline-offset-2"
                 >
                   {t('privacy_policy', 'Privacy Policy')}
                 </a>
-                &nbsp;
               </div>
               <div className="text-center mt-6">
                 <div className="w-full flex">
@@ -243,16 +247,23 @@ export function RegisterAfter({
                     {t('create_account', 'Create Account')}
                   </Button>
                 </div>
-                <p className="mt-4 text-sm">
-                  {t('already_have_an_account', 'Already Have An Account?')}
-                  &nbsp;
-                  <Link
-                    href="/auth/login"
-                    className="underline  cursor-pointer"
-                  >
-                    {t('sign_in', 'Sign In')}
-                  </Link>
-                </p>
+                <div className="mt-6">
+                  <p className="text-[15px] font-medium">
+                    <span className="text-gray-400 dark:text-gray-500">
+                      {t('already_have_an_account', 'Already Have An Account?')}
+                    </span>
+                    &nbsp;
+                    <Link
+                      href="/auth/login"
+                      className="text-[#048FCC] hover:text-[#235170] dark:text-[#048FCC] dark:hover:text-[#F8AB0C] font-semibold transition-all duration-200 ease-in-out hover:underline decoration-2 underline-offset-4 cursor-pointer inline-flex items-center gap-2"
+                    >
+                      {t('sign_in', 'Sign In')}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </Link>
+                  </p>
+                </div>
               </div>
             </div>
           </div>

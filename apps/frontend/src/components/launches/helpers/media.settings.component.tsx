@@ -210,7 +210,7 @@ export const CreateThumbnail: FC<{
 
   return (
     <div className="flex flex-col space-y-4">
-      <div className="relative bg-black rounded-lg overflow-hidden">
+      <div className="relative bg-newBgColor rounded-lg overflow-hidden">
         <video
           ref={videoRef}
           src={
@@ -253,7 +253,7 @@ export const CreateThumbnail: FC<{
             <button
               onClick={captureFrame}
               disabled={isCapturing}
-              className="bg-forth text-white px-6 py-2 rounded-lg hover:bg-opacity-80 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-forth text-textColor px-6 py-2 rounded-lg hover:bg-opacity-80 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isCapturing ? 'Capturing...' : 'Select This Frame'}
             </button>
@@ -413,7 +413,7 @@ export const MediaComponentInner: FC<{
                         setNewThumbnail(null);
                         setThumbnail(null);
                       }}
-                      className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-opacity-80 transition-all flex-1 border border-red-700"
+                      className="bg-red-600 text-textColor px-6 py-2 rounded-lg hover:bg-opacity-80 transition-all flex-1 border border-red-700"
                     >
                       Clear Thumbnail
                     </button>
@@ -426,7 +426,7 @@ export const MediaComponentInner: FC<{
                 <div className="flex justify-start">
                   <button
                     onClick={() => setIsEditingThumbnail(false)}
-                    className="text-textColor hover:text-white transition-colors flex items-center space-x-2"
+                    className="text-textColor hover:text-textColor transition-colors flex items-center space-x-2"
                   >
                     <svg
                       width="16"
@@ -476,13 +476,13 @@ export const MediaComponentInner: FC<{
           <button
             disabled={loading}
             onClick={onClose}
-            className="flex-1 bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-opacity-80 transition-all"
+            className="flex-1 bg-gray-600 text-textColor px-6 py-2 rounded-lg hover:bg-opacity-80 transition-all"
           >
             Cancel
           </button>
           <button
             onClick={save}
-            className="flex-1 bg-forth text-white px-6 py-2 rounded-lg hover:bg-opacity-80 transition-all"
+            className="flex-1 bg-forth text-textColor px-6 py-2 rounded-lg hover:bg-opacity-80 transition-all"
           >
             Save Changes
           </button>

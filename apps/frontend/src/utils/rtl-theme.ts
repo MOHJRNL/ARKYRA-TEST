@@ -1,6 +1,6 @@
 /**
- * RTL and Theme Utilities for ARKYRA
- * 
+ * RTL and Theme Utilities for Arkyra
+ *
  * Handles:
  * - RTL (Right-to-Left) layout for Arabic
  * - Dark mode theme switching
@@ -12,8 +12,9 @@ export type LayoutDirection = 'ltr' | 'rtl';
 
 /**
  * RTL Languages that require right-to-left layout
+ * Only Arabic is supported for Arkyra
  */
-export const RTL_LANGUAGES = ['ar', 'he', 'fa', 'ur'];
+export const RTL_LANGUAGES = ['ar'];
 
 /**
  * Get layout direction based on language code

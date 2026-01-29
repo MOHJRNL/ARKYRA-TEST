@@ -89,14 +89,14 @@ export const RenderAnalytics: FC<{
         <div key={`pl-${index}`} className="flex">
           <div className="flex-1 bg-newTableHeader rounded-[8px] py-[10px] px-[16px] gap-[10px] flex flex-col">
             <div className="flex items-center gap-[14px]">
-              <div className="text-[20px]">{p.label}</div>
+              <div className="text-lg">{p.label}</div>
             </div>
             <div className="flex-1">
               <div className="h-[156px] relative">
                 <ChartSocial {...p} key={`p-${index}`} />
               </div>
             </div>
-            <div className="text-[50px] leading-[60px]">{total[index]}</div>
+            <div className="text-5xl leading-tight">{total[index]}</div>
           </div>
         </div>
       ))}

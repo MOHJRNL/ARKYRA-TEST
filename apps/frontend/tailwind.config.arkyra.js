@@ -1,6 +1,6 @@
 /**
- * ARKYRA Tailwind CSS Configuration
- * 
+ * Arkyra Tailwind CSS Configuration
+ *
  * This configuration extends the base Tailwind setup with:
  * - Al Jazeera brand colors
  * - RTL support for Arabic

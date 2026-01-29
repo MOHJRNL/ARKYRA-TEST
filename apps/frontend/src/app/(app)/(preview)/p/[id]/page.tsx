@@ -10,6 +10,7 @@ import utc from 'dayjs/plugin/utc';
 import { VideoOrImage } from '@gitroom/react/helpers/video.or.image';
 import { CopyClient } from '@gitroom/frontend/components/preview/copy.client';
 import { getT } from '@gitroom/react/translation/get.translation.service.backend';
+import { getBrandingConfig, getBrandName } from '@gitroom/frontend/config/branding';
 import dynamicLoad from 'next/dynamic';
 
 const RenderPreviewDate = dynamicLoad(
@@ -22,7 +23,7 @@ const RenderPreviewDate = dynamicLoad(
 
 dayjs.extend(utc);
 export const metadata: Metadata = {
-  title: `${isGeneralServerSide() ? 'Postiz' : 'Gitroom'} Preview`,
+  title: `${getBrandName()} Preview`,
   description: '',
 };
 export default async function Auth({
@@ -38,16 +39,17 @@ export default async function Auth({
 }) {
   const post = await (await internalFetch(`/public/posts/${id}`)).json();
   const t = await getT();
+  const branding = getBrandingConfig();
   if (!post.length) {
     return (
-      <div className="text-white fixed start-0 top-0 w-full h-full flex justify-center items-center text-[20px]">
+      <div className="text-textColor fixed start-0 top-0 w-full h-full flex justify-center items-center text-[20px]">
         {t('post_not_found', 'Post not found')}
       </div>
     );
   }
   return (
     <div>
-      <div className="mx-auto w-full max-w-[1346px] py-3 text-white">
+      <div className="mx-auto w-full max-w-[1346px] py-3 text-textColor">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
@@ -56,12 +58,13 @@ export default async function Auth({
                   href="/"
                   className="text-2xl flex items-center justify-center gap-[10px] text-textColor order-1"
                 >
-                  <div className="max-w-[55px]">
+                  <div className="max-w-[200px]">
                     <Image
-                      src={'/postiz.svg'}
-                      width={55}
-                      height={55}
-                      alt="Logo"
+                      src={branding.logo.light}
+                      width={120}
+                      height={184}
+                      alt={branding.displayName}
+                      className="h-auto w-auto max-h-[70px]"
                     />
                   </div>
                   <div>
@@ -108,7 +111,7 @@ export default async function Auth({
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row text-white w-full max-w-[1346px] mx-auto">
+      <div className="flex flex-col lg:flex-row text-textColor w-full max-w-[1346px] mx-auto">
         <div className="flex-1">
           <div className="gap-[20px] flex flex-col">
             {post.map((p: any, index: number) => (

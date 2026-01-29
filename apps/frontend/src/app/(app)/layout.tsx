@@ -2,6 +2,7 @@ import { SentryComponent } from '@gitroom/frontend/components/layout/sentry.comp
 
 export const dynamic = 'force-dynamic';
 import '../global.scss';
+import '../../styles/arkyra-globals.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import '@copilotkit/react-ui/styles.css';
 import LayoutContext from '@gitroom/frontend/components/layout/layout.context';
@@ -18,6 +19,7 @@ import { FacebookComponent } from '@gitroom/frontend/components/layout/facebook.
 import { headers } from 'next/headers';
 import { headerName } from '@gitroom/react/translation/i18n.config';
 import { HtmlComponent } from '@gitroom/frontend/components/layout/html.component';
+import { alJazeeraArabic, jakartaSans } from '@gitroom/frontend/config/fonts';
 // import dynamicLoad from 'next/dynamic';
 // const SetTimezone = dynamicLoad(
 //   () => import('@gitroom/frontend/components/layout/set.timezone'),
@@ -26,24 +28,27 @@ import { HtmlComponent } from '@gitroom/frontend/components/layout/html.componen
 //   }
 // );
 
-const jakartaSans = Plus_Jakarta_Sans({
-  weight: ['600', '500'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-});
-
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const allHeaders = headers();
+  const currentLanguage = allHeaders.get(headerName) || 'en';
+  const isArabic = currentLanguage === 'ar';
   const Plausible = !!process.env.STRIPE_PUBLISHABLE_KEY
     ? PlausibleProvider
     : Fragment;
   return (
-    <html>
+    <html className={clsx(alJazeeraArabic.variable, jakartaSans.variable)}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
       <body
-        className={clsx(jakartaSans.className, 'dark text-primary !bg-primary')}
+        className={clsx(
+          isArabic ? 'font-[var(--font-al-jazeera-arabic)]' : jakartaSans.className,
+          'dark text-primary !bg-primary'
+        )}
       >
         <VariableContextComponent
           storageProvider={
@@ -58,8 +63,8 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
           frontEndUrl={process.env.FRONTEND_URL!}
           isGeneral={!!process.env.IS_GENERAL}
           genericOauth={!!process.env.POSTIZ_GENERIC_OAUTH}
-          oauthLogoUrl={process.env.NEXT_PUBLIC_POSTIZ_OAUTH_LOGO_URL!}
-          oauthDisplayName={process.env.NEXT_PUBLIC_POSTIZ_OAUTH_DISPLAY_NAME!}
+          oauthLogoUrl={process.env.NEXT_PUBLIC_ARKYRA_OAUTH_LOGO_URL!}
+          oauthDisplayName={process.env.NEXT_PUBLIC_ARKYRA_OAUTH_DISPLAY_NAME!}
           uploadDirectory={process.env.NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY!}
           dub={!!process.env.STRIPE_PUBLISHABLE_KEY}
           facebookPixel={process.env.NEXT_PUBLIC_FACEBOOK_PIXEL!}
@@ -85,7 +90,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
             <DubAnalytics />
             <FacebookComponent />
             <Plausible
-              domain={!!process.env.IS_GENERAL ? 'postiz.com' : 'gitroom.com'}
+              domain={!!process.env.IS_GENERAL ? 'arkyra.pro' : 'gitroom.com'}
             >
               <PHProvider
                 phkey={process.env.NEXT_PUBLIC_POSTHOG_KEY}

@@ -30,7 +30,7 @@ export const SliderComponent: FC<{
       {canGoPrevious && (
         <button
           onClick={goToPrevious}
-          className="absolute top-[50%] start-[10px] -translate-y-[50%] flex items-center justify-center w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors backdrop-blur-sm cursor-pointer"
+          className="absolute top-[50%] start-[10px] -translate-y-[50%] flex items-center justify-center w-8 h-8 rounded-full bg-newBgColorInner/60 hover:bg-newBgColorInner/80 text-textColor transition-colors backdrop-blur-sm cursor-pointer"
           aria-label="Previous slide"
         >
           <ChevronLeftIcon size={18} />
@@ -41,7 +41,7 @@ export const SliderComponent: FC<{
       {canGoNext && (
         <button
           onClick={goToNext}
-          className="absolute top-[50%] end-[10px] -translate-y-[50%] flex items-center justify-center w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors backdrop-blur-sm cursor-pointer"
+          className="absolute top-[50%] end-[10px] -translate-y-[50%] flex items-center justify-center w-8 h-8 rounded-full bg-newBgColorInner/60 hover:bg-newBgColorInner/80 text-textColor transition-colors backdrop-blur-sm cursor-pointer"
           aria-label="Next slide"
         >
           <ChevronRightIcon size={18} />
@@ -58,8 +58,8 @@ export const SliderComponent: FC<{
               className={clsx(
                 'w-2 h-2 rounded-full transition-colors cursor-pointer',
                 index === show
-                  ? 'bg-white'
-                  : 'bg-transparent border border-white'
+                  ? 'bg-textColor'
+                  : 'bg-transparent border border-textColor'
               )}
               aria-label={`Go to slide ${index + 1}`}
             />

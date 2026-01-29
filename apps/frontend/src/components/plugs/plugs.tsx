@@ -98,7 +98,7 @@ export const Plugs = () => {
         <div>
           <img src="/peoplemarketplace.svg" />
         </div>
-        <div className="text-[48px]">
+        <div className="text-[40px]">
           {t(
             'there_are_not_plugs_matching_your_channels',
             'There are not plugs matching your channels'
@@ -128,7 +128,7 @@ export const Plugs = () => {
       >
         <div className="flex gap-[12px] flex-col">
           <div className="flex items-center">
-            <h2 className="group-[.sidebar]:hidden flex-1 text-[20px] font-[500]">
+            <h2 className="group-[.sidebar]:hidden flex-1 text-[18px] font-[500]">
               {t('channels')}
             </h2>
             <div

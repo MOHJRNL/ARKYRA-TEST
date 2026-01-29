@@ -62,7 +62,7 @@ export const TextArea: FC<{
           chatApiConfigs: {},
         }}
       />
-      <div className="text-red-400 text-[12px]">
+      <div className="text-red-400 text-[11px]">
         {form?.formState?.errors?.[props.name]?.message as string}
       </div>
     </>
@@ -202,7 +202,7 @@ export const PlugItem: FC<{
     >
       <div key={plug.title} className="p-[16px] h-full flex flex-col flex-1">
         <div className="flex">
-          <div className="text-[20px] mb-[8px] flex-1">{plug.title}</div>
+          <div className="text-[18px] mb-[8px] flex-1">{plug.title}</div>
           {!!data && (
             <div onClick={(e) => e.stopPropagation()}>
               <Slider

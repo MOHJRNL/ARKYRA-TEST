@@ -43,8 +43,8 @@ const ActionControls = ({ store }: any) => {
     <div>
       <Button
         loading={load}
-        className="outline-none"
-        innerClassName="invert outline-none text-black"
+        className="outline-none rounded-lg"
+        innerClassName="invert outline-none text-black rounded-lg"
         onClick={async () => {
           setLoad(true);
           const blob = await store.toBlob();
@@ -105,6 +105,32 @@ const Polonto: FC<{
   }, []);
   return (
     <div className="bg-white text-black relative z-[400] polonto">
+      <style jsx global>{`
+        /* Hide Polotno branding */
+        .polotno [data-credit],
+        .polotno [class*="credit"],
+        .polotno a[href*="polotno"],
+        .polotno a[href*="polotnocom"],
+        .polotno a[href*="polotno.com"],
+        .polotno-credits-container,
+        div[style*="position: absolute; right: 10px; bottom: 10px"],
+        div[style*="font-size: 10px; color"],
+        a[href="https://polotno.com"],
+        a[href="https://polotno.com/"] {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+        }
+        /* Increase icon contrast in modals */
+        .polotno svg {
+          opacity: 1 !important;
+          fill: currentColor !important;
+        }
+        .polotno button {
+          opacity: 1 !important;
+        }
+      `}</style>
       <CloseContext.Provider
         value={{
           close: () => closeModal(),

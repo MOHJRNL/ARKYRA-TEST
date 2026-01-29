@@ -1,0 +1,570 @@
+{
+  "name": "ARKYRA Documentation",
+  "logo": "/logos/arkyra-pulse-light.png",
+  "colors": {
+    "primary": "#048FCC",
+    "secondary": "#F8AB0C",
+    "accent": "#001969"
+  },
+  "navigation": [
+    {
+      "title": "Getting Started",
+      "icon": "🚀",
+      "items": [
+        {
+          "title": "Introduction",
+          "href": "/introduction",
+          "description": "Learn about ARKYRA"
+        },
+        {
+          "title": "Quick Start",
+          "href": "/quickstart",
+          "description": "Get started in minutes"
+        },
+        {
+          "title": "Architecture",
+          "href": "/architecture",
+          "description": "System design overview"
+        },
+        {
+          "title": "Contributing",
+          "href": "/contributing",
+          "description": "Contribute to ARKYRA"
+        },
+        {
+          "title": "Developer Guide",
+          "href": "/developer-guide",
+          "description": "Development setup"
+        }
+      ]
+    },
+    {
+      "title": "Installation",
+      "icon": "📦",
+      "items": [
+        {
+          "title": "Docker Compose",
+          "href": "/installation/docker-compose",
+          "description": "Recommended installation",
+          "badge": "Recommended"
+        },
+        {
+          "title": "Docker",
+          "href": "/installation/docker",
+          "description": "Standalone Docker"
+        },
+        {
+          "title": "Kubernetes + Helm",
+          "href": "/installation/kubernetes-helm",
+          "description": "Production orchestration"
+        },
+        {
+          "title": "Coolify",
+          "href": "/installation/coolify",
+          "description": "Deploy with Coolify"
+        },
+        {
+          "title": "Dev Container",
+          "href": "/installation/devcontainer",
+          "description": "VS Code container"
+        },
+        {
+          "title": "Local Development",
+          "href": "/installation/development",
+          "description": "Development setup"
+        }
+      ]
+    },
+    {
+      "title": "Configuration",
+      "icon": "⚙️",
+      "items": [
+        {
+          "title": "Environment Variables",
+          "href": "/configuration/reference",
+          "description": "Complete reference"
+        },
+        {
+          "title": "Docker Configuration",
+          "href": "/configuration/docker",
+          "description": "Docker settings"
+        },
+        {
+          "title": "Email Notifications",
+          "href": "/configuration/emails",
+          "description": "Email setup"
+        },
+        {
+          "title": "OAuth / OIDC",
+          "href": "/configuration/oauth",
+          "description": "Enterprise authentication"
+        },
+        {
+          "title": "Cloudflare R2",
+          "href": "/configuration/r2",
+          "description": "Storage configuration"
+        },
+        {
+          "title": "Branding",
+          "href": "/configuration/branding",
+          "description": "Custom branding"
+        },
+        {
+          "title": "SSL/TLS",
+          "href": "/configuration/ssl",
+          "description": "HTTPS setup"
+        }
+      ]
+    },
+    {
+      "title": "Integrations",
+      "icon": "🔌",
+      "items": [
+        {
+          "title": "Overview",
+          "href": "/integrations/overview",
+          "description": "All integrations"
+        },
+        {
+          "title": "Hybrid AI Router",
+          "href": "/integrations/hybrid-routing",
+          "description": "Intelligent AI routing",
+          "badge": "Featured"
+        },
+        {
+          "title": "AI Providers",
+          "subitems": [
+            {
+              "title": "OpenAI",
+              "href": "/integrations/openai",
+              "description": "GPT-4, DALL-E"
+            },
+            {
+              "title": "Google Gemini",
+              "href": "/integrations/gemini",
+              "description": "Gemini Pro, Ultra"
+            },
+            {
+              "title": "Anthropic Claude",
+              "href": "/integrations/claude",
+              "description": "Claude 3 family"
+            },
+            {
+              "title": "Mistral AI",
+              "href": "/integrations/mistral",
+              "description": "Mistral models"
+            },
+            {
+              "title": "GLM 4.7",
+              "href": "/integrations/glm",
+              "description": "Chinese language AI"
+            }
+          ]
+        },
+        {
+          "title": "Video Generation",
+          "subitems": [
+            {
+              "title": "HeyGen",
+              "href": "/integrations/heygen",
+              "description": "AI avatar videos"
+            },
+            {
+              "title": "Synthesia",
+              "href": "/integrations/synthesia",
+              "description": "Professional videos"
+            },
+            {
+              "title": "D-ID",
+              "href": "/integrations/d-id",
+              "description": "Talking avatars"
+            },
+            {
+              "title": "Runway",
+              "href": "/integrations/runway",
+              "description": "AI video editing"
+            }
+          ]
+        },
+        {
+          "title": "Audio Synthesis",
+          "subitems": [
+            {
+              "title": "ElevenLabs",
+              "href": "/integrations/elevenlabs",
+              "description": "Realistic voices"
+            },
+            {
+              "title": "Murf",
+              "href": "/integrations/murf",
+              "description": "Studio-quality voices"
+            },
+            {
+              "title": "PlayHT",
+              "href": "/integrations/playht",
+              "description": "Text-to-speech"
+            }
+          ]
+        },
+        {
+          "title": "Automation",
+          "subitems": [
+            {
+              "title": "Webhooks",
+              "href": "/integrations/webhooks",
+              "description": "Custom integrations"
+            },
+            {
+              "title": "Zapier",
+              "href": "/integrations/zapier",
+              "description": "5,000+ apps"
+            },
+            {
+              "title": "Make",
+              "href": "/integrations/make",
+              "description": "Visual automation"
+            },
+            {
+              "title": "n8n",
+              "href": "/integrations/n8n",
+              "description": "Self-hosted workflows"
+            }
+          ]
+        },
+        {
+          "title": "Content Sources",
+          "subitems": [
+            {
+              "title": "Notion",
+              "href": "/integrations/notion",
+              "description": "Notion databases"
+            },
+            {
+              "title": "Google Sheets",
+              "href": "/integrations/google-sheets",
+              "description": "Spreadsheet import"
+            },
+            {
+              "title": "Airtable",
+              "href": "/integrations/airtable",
+              "description": "Airtable bases"
+            }
+          ]
+        },
+        {
+          "title": "Analytics",
+          "subitems": [
+            {
+              "title": "Google Analytics 4",
+              "href": "/integrations/ga4",
+              "description": "Conversion tracking"
+            },
+            {
+              "title": "Looker Studio",
+              "href": "/integrations/looker-studio",
+              "description": "Data visualization"
+            },
+            {
+              "title": "PostHog",
+              "href": "/integrations/posthog",
+              "description": "Product analytics"
+            },
+            {
+              "title": "Amplitude",
+              "href": "/integrations/amplitude",
+              "description": "User behavior"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Social Platforms",
+      "icon": "📱",
+      "items": [
+        {
+          "title": "Overview",
+          "href": "/providers/overview",
+          "description": "All platforms"
+        },
+        {
+          "title": "Instagram",
+          "href": "/providers/instagram",
+          "description": "Posts, Stories, Reels"
+        },
+        {
+          "title": "LinkedIn",
+          "href": "/providers/linkedin",
+          "description": "Personal profiles"
+        },
+        {
+          "title": "LinkedIn Page",
+          "href": "/providers/linkedin-page",
+          "description": "Company pages"
+        },
+        {
+          "title": "X / Twitter",
+          "href": "/providers/x",
+          "description": "Posts and threads"
+        },
+        {
+          "title": "Facebook",
+          "href": "/providers/facebook",
+          "description": "Pages and groups"
+        },
+        {
+          "title": "TikTok",
+          "href": "/providers/tiktok",
+          "description": "Video content"
+        },
+        {
+          "title": "YouTube",
+          "href": "/providers/youtube",
+          "description": "Videos and Shorts"
+        },
+        {
+          "title": "Pinterest",
+          "href": "/providers/pinterest",
+          "description": "Pins and boards"
+        },
+        {
+          "title": "Threads",
+          "href": "/providers/threads",
+          "description": "Meta's Twitter alternative"
+        },
+        {
+          "title": "Discord",
+          "href": "/providers/discord",
+          "description": "Server messages"
+        },
+        {
+          "title": "Mastodon",
+          "href": "/providers/mastodon",
+          "description": "Decentralized social"
+        },
+        {
+          "title": "Bluesky",
+          "href": "/providers/bluesky",
+          "description": "AT Protocol social"
+        },
+        {
+          "title": "Reddit",
+          "href": "/providers/reddit",
+          "description": "Subreddit posts"
+        },
+        {
+          "title": "Dribbble",
+          "href": "/providers/dribbble",
+          "description": "Design showcase"
+        },
+        {
+          "title": "Google My Business",
+          "href": "/providers/google-my-business",
+          "description": "Local business"
+        },
+        {
+          "title": "Telegram",
+          "href": "/providers/telegram",
+          "description": "Channels and groups"
+        },
+        {
+          "title": "Slack",
+          "href": "/providers/slack",
+          "description": "Workspace messages"
+        }
+      ]
+    },
+    {
+      "title": "API",
+      "icon": "🔧",
+      "items": [
+        {
+          "title": "Overview",
+          "href": "/api/overview",
+          "description": "REST API introduction"
+        },
+        {
+          "title": "Authentication",
+          "href": "/api/authentication",
+          "description": "API authentication"
+        },
+        {
+          "title": "Posts",
+          "href": "/api/posts",
+          "description": "Create and manage posts"
+        },
+        {
+          "title": "Integrations",
+          "href": "/api/integrations",
+          "description": "Integration management"
+        },
+        {
+          "title": "Uploads",
+          "href": "/api/uploads",
+          "description": "Media uploads"
+        },
+        {
+          "title": "Video Generation",
+          "href": "/api/video",
+          "description": "AI video creation"
+        },
+        {
+          "title": "Analytics",
+          "href": "/api/analytics",
+          "description": "Analytics data"
+        },
+        {
+          "title": "Webhooks",
+          "href": "/api/webhooks",
+          "description": "Webhook configuration"
+        },
+        {
+          "title": "Rate Limiting",
+          "href": "/api/rate-limiting",
+          "description": "API rate limits"
+        }
+      ]
+    },
+    {
+      "title": "Administration",
+      "icon": "👥",
+      "items": [
+        {
+          "title": "User Management",
+          "href": "/admin/users",
+          "description": "Manage users"
+        },
+        {
+          "title": "Workspaces",
+          "href": "/admin/workspaces",
+          "description": "Workspace administration"
+        },
+        {
+          "title": "RBAC",
+          "href": "/admin/rbac",
+          "description": "Role-based access"
+        },
+        {
+          "title": "Quota Management",
+          "href": "/admin/quotas",
+          "description": "Configure quotas"
+        },
+        {
+          "title": "Audit Logs",
+          "href": "/admin/audit-logs",
+          "description": "Activity tracking"
+        },
+        {
+          "title": "Backups",
+          "href": "/admin/backups",
+          "description": "Backup strategies"
+        },
+        {
+          "title": "Monitoring",
+          "href": "/admin/monitoring",
+          "description": "System monitoring"
+        },
+        {
+          "title": "Security",
+          "href": "/admin/security",
+          "description": "Security best practices"
+        }
+      ]
+    },
+    {
+      "title": "Reverse Proxies",
+      "icon": "🔀",
+      "items": [
+        {
+          "title": "Nginx",
+          "href": "/reverse-proxies/nginx",
+          "description": "Nginx configuration"
+        },
+        {
+          "title": "Caddy",
+          "href": "/reverse-proxies/caddy",
+          "description": "Caddy configuration"
+        },
+        {
+          "title": "Traefik",
+          "href": "/reverse-proxies/traefik",
+          "description": "Traefik configuration"
+        }
+      ]
+    },
+    {
+      "title": "Troubleshooting",
+      "icon": "🔍",
+      "items": [
+        {
+          "title": "Common Issues",
+          "href": "/troubleshooting",
+          "description": "Solve common problems"
+        },
+        {
+          "title": "Database Issues",
+          "href": "/troubleshooting/database",
+          "description": "Database troubleshooting"
+        },
+        {
+          "title": "Connection Issues",
+          "href": "/troubleshooting/connections",
+          "description": "Network and connectivity"
+        },
+        {
+          "title": "Performance Issues",
+          "href": "/troubleshooting/performance",
+          "description": "Performance optimization"
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "links": [
+      {
+        "title": "Resources",
+        "items": [
+          {
+            "title": "GitHub",
+            "href": "https://github.com/MOHJRNL/ARKYRA"
+          },
+          {
+            "title": "Website",
+            "href": "https://arkyra.pro"
+          },
+          {
+            "title": "Issue Tracker",
+            "href": "https://github.com/MOHJRNL/ARKYRA/issues"
+          }
+        ]
+      },
+      {
+        "title": "Community",
+        "items": [
+          {
+            "title": "Discussions",
+            "href": "https://github.com/MOHJRNL/ARKYRA/discussions"
+          },
+          {
+            "title": "Contributing",
+            "href": "/contributing"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "items": [
+          {
+            "title": "License",
+            "href": "https://github.com/MOHJRNL/ARKYRA/blob/main/LICENSE"
+          },
+          {
+            "title": "Privacy Policy",
+            "href": "https://arkyra.pro/privacy"
+          }
+        ]
+      }
+    ],
+    "copyright": "Built with ❤️ for Al Jazeera and the world"
+  }
+}

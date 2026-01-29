@@ -123,6 +123,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Helvetica Neue'],
+        'al-jazeera-arabic': ['var(--font-al-jazeera-arabic)', 'sans-serif'],
+        'jakarta-sans': ['var(--font-jakarta-sans)', 'sans-serif'],
       },
       animation: {
         fade: 'fadeOut 0.5s ease-in-out',

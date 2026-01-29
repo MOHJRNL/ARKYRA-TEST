@@ -64,12 +64,15 @@ export function Login() {
     <FormProvider {...form}>
       <form className="flex-1 flex" onSubmit={form.handleSubmit(onSubmit)}>
         <div className="flex flex-col flex-1">
-          <div>
-            <h1 className="text-[40px] font-[500] -tracking-[0.8px] text-start cursor-pointer">
+          <div className="mb-2">
+            <h1 className="text-[42px] font-[600] -tracking-[0.8px] text-start bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               {t('sign_in', 'Sign In')}
             </h1>
+            <p className="text-gray-400 text-sm mt-2">
+              Welcome back! Please enter your details.
+            </p>
           </div>
-          <div className="text-[14px] mt-[32px] mb-[12px]">
+          <div className="text-[14px] font-medium text-gray-300 mt-[32px] mb-[12px]">
             {t('continue_with', 'Continue With')}
           </div>
           <div className="flex flex-col">
@@ -85,11 +88,11 @@ export function Login() {
               </div>
             )}
             <div className="h-[20px] mb-[24px] mt-[24px] relative">
-              <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
+              <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent top-[50%] -translate-y-[50%]" />
               <div
                 className={`absolute z-[1] justify-center items-center w-full start-0 -top-[4px] flex`}
               >
-                <div className="px-[16px]">{t('or', 'or')}</div>
+                <div className="px-[16px] bg-newBgColorInner text-textColor opacity-60 text-xs font-medium uppercase tracking-wider">{t('or', 'or')}</div>
               </div>
             </div>
             <div className="flex flex-col gap-[12px]">
@@ -112,7 +115,7 @@ export function Login() {
               </div>
               {notActivated && (
                 <div className="bg-amber-500/10 border border-amber-500/30 rounded-[10px] p-4 mb-4">
-                  <p className="text-amber-400 text-sm mb-2">
+                  <p className="text-amber-400 text-sm mb-3 leading-relaxed">
                     {t(
                       'account_not_activated',
                       'Your account is not activated yet. Please check your email for the activation link.'
@@ -120,8 +123,11 @@ export function Login() {
                   </p>
                   <Link
                     href="/auth/activate"
-                    className="text-amber-400 underline hover:font-bold text-sm"
+                    className="text-amber-400 hover:text-amber-300 font-semibold text-sm transition-colors duration-200 inline-flex items-center gap-2 underline decoration-2 underline-offset-2"
                   >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                     {t('resend_activation_email', 'Resend Activation Email')}
                   </Link>
                 </div>
@@ -136,20 +142,41 @@ export function Login() {
                     {t('sign_in_1', 'Sign in')}
                   </Button>
                 </div>
-                <p className="mt-4 text-sm">
-                  {t('don_t_have_an_account', "Don't Have An Account?")}&nbsp;
-                  <Link href="/auth" className="underline cursor-pointer">
-                    {t('sign_up', 'Sign Up')}
-                  </Link>
-                </p>
-                <p className="mt-4 text-sm">
-                  <Link
-                    href="/auth/forgot"
-                    className="underline hover:font-bold cursor-pointer"
-                  >
-                    {t('forgot_password', 'Forgot password')}
-                  </Link>
-                </p>
+                <div className="mt-6 space-y-4">
+                  <p className="text-[15px] font-medium">
+                    <span className="text-gray-400 dark:text-gray-500">
+                      {t('don_t_have_an_account', "Don't Have An Account?")}
+                    </span>
+                    &nbsp;
+                    <Link
+                      href="/auth"
+                      className="text-[#048FCC] hover:text-[#235170] dark:text-[#048FCC] dark:hover:text-[#F8AB0C] font-semibold transition-all duration-200 ease-in-out hover:underline decoration-2 underline-offset-4 cursor-pointer"
+                    >
+                      {t('sign_up', 'Sign Up')}
+                    </Link>
+                  </p>
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-gray-700 dark:border-gray-600"></div>
+                    </div>
+                    <div className="relative flex justify-center">
+                      <span className="bg-newBgColorInner px-4 text-textColor opacity-60 text-xs uppercase tracking-wider">
+                        {t('or', 'or')}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-[15px]">
+                    <Link
+                      href="/auth/forgot"
+                      className="text-[#048FCC] hover:text-[#235170] dark:text-[#048FCC] dark:hover:text-[#F8AB0C] font-semibold transition-all duration-200 ease-in-out hover:underline decoration-2 underline-offset-4 cursor-pointer inline-flex items-center gap-2"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                      </svg>
+                      {t('forgot_password', 'Forgot password?')}
+                    </Link>
+                  </p>
+                </div>
               </div>
             </div>
           </div>

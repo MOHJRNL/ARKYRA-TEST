@@ -46,7 +46,7 @@ export const AgentChat: FC = () => {
       credentials="include"
       runtimeUrl={backendUrl + '/copilot/agent'}
       showDevConsole={false}
-      agent="postiz"
+      agent="arkyra"
       properties={{
         integrations: properties,
       }}
@@ -67,8 +67,8 @@ export const AgentChat: FC = () => {
             className="w-full h-full"
             labels={{
               title: t('your_assistant', 'Your Assistant'),
-              initial: t('agent_welcome_message', `Hello, I am your Postiz agent 🙌🏻.
-              
+              initial: t('agent_welcome_message', `Hello, I am your Arkyra agent 🙌🏻.
+
 I can schedule a post or multiple posts to multiple channels and generate pictures and videos.
 
 You can select the channels you want to use from the left menu.

@@ -1,9 +1,9 @@
 /**
- * ARKYRA i18n (Internationalization) Configuration
- * 
+ * Arkyra i18n (Internationalization) Configuration
+ *
  * Supports 5 languages:
- * - Arabic (ar) - RTL, default for AJ ARKYRA
- * - English (en) - LTR, default for ARKYRA SaaS
+ * - Arabic (ar) - RTL, default for AJ Arkyra
+ * - English (en) - LTR, default for Arkyra SaaS
  * - French (fr) - LTR
  * - Spanish (es) - LTR
  * - German (de) - LTR

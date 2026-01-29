@@ -58,7 +58,7 @@ export const DatePicker: FC<{
                 return '!text-customColor28';
               }
               if (modifiers.outside) {
-                return '!text-gray';
+                return '!text-gray !opacity-60';
               }
               if (modifiers.selected) {
                 return '!text-white !bg-seventh !outline-none';

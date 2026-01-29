@@ -1,0 +1,96 @@
+- generic [ref=e1]:
+  - alert [ref=e2]: ARKYRA Settings
+  - generic [ref=e6]:
+    - generic [ref=e9]:
+      - img "ARKYRA Pulse" [ref=e11]
+      - generic [ref=e12]:
+        - link "Calendar" [ref=e13] [cursor=pointer]:
+          - /url: /launches
+          - img [ref=e15]
+          - generic [ref=e17]: Calendar
+        - link "Agent" [ref=e18] [cursor=pointer]:
+          - /url: /agents
+          - img [ref=e20]
+          - generic [ref=e22]: Agent
+        - link "Analytics" [ref=e23] [cursor=pointer]:
+          - /url: /analytics
+          - img [ref=e25]
+          - generic [ref=e27]: Analytics
+        - link "Media" [ref=e28] [cursor=pointer]:
+          - /url: /media
+          - img [ref=e30]
+          - generic [ref=e32]: Media
+        - link "Plugs" [ref=e33] [cursor=pointer]:
+          - /url: /plugs
+          - img [ref=e35]
+          - generic [ref=e37]: Plugs
+        - link "Integrations" [ref=e38] [cursor=pointer]:
+          - /url: /third-party
+          - img [ref=e40]
+          - generic [ref=e42]: Integrations
+      - link "Settings" [active] [ref=e44] [cursor=pointer]:
+        - /url: /settings
+        - img [ref=e46]
+        - generic [ref=e49]: Settings
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - heading "Settings" [level=1] [ref=e1237]
+        - generic [ref=e54]:
+          - img [ref=e57] [cursor=pointer]
+          - img "en" [ref=e61] [cursor=pointer]
+          - img [ref=e65] [cursor=pointer]
+      - generic [ref=e67]:
+        - generic [ref=e1238]:
+          - generic [ref=e1239]:
+            - generic [ref=e1240] [cursor=pointer]:
+              - img [ref=e1242]
+              - text: Global Settings
+            - generic [ref=e1245] [cursor=pointer]:
+              - img [ref=e1247]
+              - text: Teams
+            - generic [ref=e1250] [cursor=pointer]:
+              - img [ref=e1252]
+              - text: Webhooks
+            - generic [ref=e1255] [cursor=pointer]:
+              - img [ref=e1257]
+              - text: Auto Post
+            - generic [ref=e1260] [cursor=pointer]:
+              - img [ref=e1262]
+              - text: Sets
+            - generic [ref=e1265] [cursor=pointer]:
+              - img [ref=e1267]
+              - text: Signatures
+            - generic [ref=e1270] [cursor=pointer]:
+              - img [ref=e1272]
+              - text: Public API
+          - generic [ref=e1277] [cursor=pointer]: Logout from ARKYRA
+        - generic [ref=e1282]:
+          - heading "Global Settings" [level=3] [ref=e1283]
+          - generic [ref=e1284]:
+            - generic [ref=e1285]: Date Metrics
+            - combobox [ref=e1287]:
+              - option "AM:PM" [selected]
+              - option "24 hours"
+          - generic [ref=e1289]:
+            - generic [ref=e1290]: Email Notifications
+            - generic [ref=e1292]:
+              - generic [ref=e1293]: Success Emails
+              - generic [ref=e1294]: Receive email notifications when posts are published successfully
+            - generic [ref=e1299]:
+              - generic [ref=e1300]: Failure Emails
+              - generic [ref=e1301]: Receive email notifications when posts fail to publish
+          - generic [ref=e1305]:
+            - generic [ref=e1306]: Shortlink Settings
+            - generic [ref=e1307]:
+              - generic [ref=e1308]:
+                - generic [ref=e1309]: Shortlink Preference
+                - generic [ref=e1310]: Control how URLs in your posts are handled. Shortlinks provide click statistics.
+              - combobox [ref=e1313]:
+                - option "Ask every time" [selected]
+                - option "Always shortlink"
+                - option "Never shortlink"
+  - generic [ref=e1316] [cursor=pointer]:
+    - img [ref=e1317]
+    - generic [ref=e1319]: 1 error
+    - button "Hide Errors" [ref=e1320]:
+      - img [ref=e1321]

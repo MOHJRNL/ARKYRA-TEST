@@ -1,0 +1,71 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e6]:
+    - generic [ref=e9]:
+      - img "Arkyra Digital Command Center" [ref=e11]
+      - generic [ref=e12]:
+        - link "Calendar" [ref=e13] [cursor=pointer]:
+          - /url: /launches
+          - generic [ref=e14]: Calendar
+        - link "Agent" [ref=e15] [cursor=pointer]:
+          - /url: /agents
+          - generic [ref=e16]: Agent
+        - link "Analytics" [ref=e17] [cursor=pointer]:
+          - /url: /analytics
+          - generic [ref=e18]: Analytics
+        - link "Media" [ref=e19] [cursor=pointer]:
+          - /url: /media
+          - generic [ref=e20]: Media
+        - link "Plugs" [ref=e21] [cursor=pointer]:
+          - /url: /plugs
+          - generic [ref=e22]: Plugs
+        - link "Integrations" [ref=e23] [cursor=pointer]:
+          - /url: /third-party
+          - generic [ref=e24]: Integrations
+      - link "Settings" [ref=e26] [cursor=pointer]:
+        - /url: /settings
+        - generic [ref=e27]: Settings
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - heading "Agent" [level=1] [ref=e31]
+        - generic [ref=e32]:
+          - img [ref=e35] [cursor=pointer]
+          - img "en" [ref=e39] [cursor=pointer]
+          - img [ref=e43] [cursor=pointer]
+      - generic [ref=e45]:
+        - generic [ref=e48]:
+          - heading "Select Channels" [level=2] [ref=e49]
+          - img [ref=e51] [cursor=pointer]
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - paragraph [ref=e68]: Hello, I am your Arkyra agent 🙌🏻.
+                - paragraph [ref=e69]: I can schedule a post or multiple posts to multiple channels and generate pictures and videos.
+                - paragraph [ref=e70]: You can select the channels you want to use from the left menu.
+                - paragraph [ref=e71]: You can see your previous conversations from the right menu.
+                - paragraph [ref=e72]: You can also use me as an MCP Server, check Settings >> Public API
+              - generic [ref=e73]:
+                - button "Regenerate response" [ref=e74] [cursor=pointer]:
+                  - img
+                - button "Copy to clipboard" [ref=e75] [cursor=pointer]:
+                  - img
+                - button "Thumbs up" [ref=e76] [cursor=pointer]:
+                  - img
+                - button "Thumbs down" [ref=e77] [cursor=pointer]:
+                  - img
+            - contentinfo [ref=e78]
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - img [ref=e86] [cursor=pointer]
+              - img [ref=e92] [cursor=pointer]
+              - img [ref=e99] [cursor=pointer]
+            - img [ref=e103]
+          - generic [ref=e105]:
+            - textbox "Type a message..." [ref=e106]
+            - button [disabled] [ref=e109]:
+              - img [ref=e110]
+        - link "Start a new chat" [ref=e57] [cursor=pointer]:
+          - /url: /agents
+          - img [ref=e58]
+          - generic [ref=e60]: Start a new chat

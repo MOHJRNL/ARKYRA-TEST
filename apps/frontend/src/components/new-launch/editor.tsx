@@ -375,7 +375,7 @@ export const EditorWrapper: FC<{
               </div>
               <div className="w-[54px] h-[54px] rounded-full bg-newSettings opacity-80" />
             </div>
-            <div className="text-[14px] font-[600] text-white">
+            <div className="text-[14px] font-[600] text-textColor">
               {t(
                 'cant_edit_networks_when_creating_set',
                 "You can't edit networks when creating a set"
@@ -400,14 +400,14 @@ export const EditorWrapper: FC<{
               </div>
               <div className="w-[54px] h-[54px] rounded-full bg-newSettings opacity-80" />
             </div>
-            <div className="text-[14px] font-[600] text-white">
+            <div className="text-[14px] font-[600] text-textColor">
               {t(
                 'click_to_exit_global_editing',
                 'Click this button to exit global editing and customize the post for this channel'
               )}
             </div>
             <div>
-              <div className="text-white rounded-[8px] h-[44px] px-[20px] bg-[#D82D7E] cursor-pointer flex justify-center items-center">
+              <div className="text-textColor rounded-[8px] h-[44px] px-[20px] bg-forth hover:bg-forthHover active:bg-forthActive cursor-pointer flex justify-center items-center transition-all">
                 {t('edit_content', 'Edit content')}
               </div>
             </div>
@@ -702,7 +702,7 @@ export const Editor: FC<{
           <div {...getRootProps()} className="flex flex-1 flex-col">
             <div
               className={clsx(
-                'absolute left-0 top-0 w-full h-full bg-black/70 z-[300] transition-all items-center justify-center flex text-white text-sm',
+                'absolute left-0 top-0 w-full h-full bg-newBgColorInner/70 z-[300] transition-all items-center justify-center flex text-textColor text-sm',
                 !isDragActive ? 'pointer-events-none opacity-0' : 'opacity-100'
               )}
             >

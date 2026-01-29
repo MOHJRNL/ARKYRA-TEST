@@ -119,7 +119,7 @@ export const Pagination: FC<{
     <ul className="flex flex-row items-center gap-1 justify-center mt-[15px]">
       <li className={clsx(current === 0 && 'opacity-20 pointer-events-none')}>
         <div
-          className="cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 gap-1 ps-2.5 text-gray-400 hover:text-white border-[#1F1F1F] hover:bg-forth"
+          className="cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 gap-1 ps-2.5 text-gray-400 hover:text-textColor border-newTableBorder hover:bg-forth"
           aria-label="Go to previous page"
           onClick={() => setPage(current - 1)}
         >
@@ -138,10 +138,10 @@ export const Pagination: FC<{
               aria-current="page"
               onClick={() => setPage(item - 1)}
               className={clsx(
-                'cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border hover:bg-forth h-10 w-10 hover:text-white border-newBorder',
+                'cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border hover:bg-forth h-10 w-10 hover:text-textColor border-newBorder',
                 current === item - 1
-                  ? 'bg-forth !text-white'
-                  : 'text-textColor hover:text-white'
+                  ? 'bg-forth !text-textColor'
+                  : 'text-textColor hover:text-textColor'
               )}
             >
               {item}
@@ -155,7 +155,7 @@ export const Pagination: FC<{
         )}
       >
         <a
-          className="text-textColor hover:text-white group cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 gap-1 pe-2.5 text-gray-400 border-[#1F1F1F] hover:bg-forth"
+          className="text-textColor hover:text-textColor group cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 gap-1 pe-2.5 text-gray-400 border-newTableBorder hover:bg-forth"
           aria-label="Go to next page"
           onClick={() => setPage(current + 1)}
         >
@@ -388,7 +388,7 @@ export const MediaBox: FC<{
       >
         {loading ? (
           <div className="absolute left-[50%] top-[50%] -translate-y-[50%] -translate-x-[50%]">
-            <div className="animate-spin h-[20px] w-[20px] border-4 border-white border-t-transparent rounded-full" />
+            <div className="animate-spin h-[20px] w-[20px] border-4 border-textColor border-t-transparent rounded-full" />
           </div>
         ) : (
           <PlusIcon size={14} />
@@ -519,13 +519,13 @@ export const MediaBox: FC<{
                     className={clsx(
                       'w-full h-full rounded-[6px] border-[4px] relative',
                       !!selected.find((p) => p.id === media.id)
-                        ? 'border-[#612BD3]'
+                        ? 'border-[#048FCC]'
                         : 'border-transparent'
                     )}
                     onClick={addRemoveSelected(media)}
                   >
                     {!!selected.find((p: any) => p.id === media.id) ? (
-                      <div className="text-white flex z-[101] justify-center items-center text-[14px] font-[500] w-[24px] h-[24px] rounded-full bg-[#612BD3] absolute -bottom-[10px] -end-[10px]">
+                      <div className="text-textColor flex z-[101] justify-center items-center text-[14px] font-[500] w-[24px] h-[24px] rounded-full bg-[#048FCC] absolute -bottom-[10px] -end-[10px]">
                         {selected.findIndex((z: any) => z.id === media.id) + 1}
                       </div>
                     ) : (
@@ -538,7 +538,7 @@ export const MediaBox: FC<{
                       <div className="absolute z-[20] left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]">
                         <div
                           onClick={maximize(media)}
-                          className="cursor-pointer p-[4px] bg-black/40 hidden group-hover:block hover:scale-150 transition-all"
+                          className="cursor-pointer p-[4px] bg-newBgColorInner/80 hidden group-hover:block hover:scale-150 transition-all"
                         >
                           <svg
                             width="30"
@@ -590,7 +590,7 @@ export const MediaBox: FC<{
               <button
                 onClick={standalone ? () => {} : addMedia}
                 disabled={selected.length === 0}
-                className="cursor-pointer text-white disabled:opacity-80 disabled:cursor-not-allowed h-[52px] px-[20px] items-center justify-center bg-[#612BD3] flex rounded-[10px]"
+                className="cursor-pointer text-textColor disabled:opacity-80 disabled:cursor-not-allowed h-[52px] px-[20px] items-center justify-center bg-[#048FCC] hover:bg-[#F8AB0C] active:bg-[#235170] flex rounded-[10px] transition-all"
               >
                 {t('add_selected_media', 'Add selected media')}
               </button>
@@ -775,7 +775,7 @@ export const MultiMediaComponent: FC<{
                             ),
                           });
                         }}
-                        className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-black/80 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity z-[9]"
+                        className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-newBgColorInner/80 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity z-[9]"
                       >
                         <MediaSettingsIcon className="cursor-pointer relative z-[200]" />
                       </div>
@@ -791,7 +791,7 @@ export const MultiMediaComponent: FC<{
 
                     <CloseCircleIcon
                       onClick={clearMedia(index)}
-                      className="absolute -end-[4px] -top-[4px] z-[20] rounded-full bg-white"
+                      className="absolute -end-[4px] -top-[4px] z-[20] rounded-full bg-newBgColorInner"
                     />
                   </div>
                 </Fragment>
@@ -805,6 +805,8 @@ export const MultiMediaComponent: FC<{
               <div
                 onClick={showModal}
                 className="cursor-pointer h-[30px] rounded-[6px] justify-center items-center flex bg-newColColor px-[8px]"
+                data-tooltip-id="tooltip"
+                data-tooltip-content={t('media_library', 'Media Library')}
               >
                 <div className="flex gap-[8px] items-center">
                   <div>
@@ -818,6 +820,8 @@ export const MultiMediaComponent: FC<{
               <div
                 onClick={designMedia}
                 className="cursor-pointer h-[30px] rounded-[6px] justify-center items-center flex bg-newColColor px-[8px]"
+                data-tooltip-id="tooltip"
+                data-tooltip-content={t('design_media', 'Design Media')}
               >
                 <div className="flex gap-[5px] items-center">
                   <div>

@@ -16,19 +16,11 @@ import {
 } from '@gitroom/frontend/components/launches/calendar.context';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
-import 'dayjs/locale/he';
-import 'dayjs/locale/ru';
-import 'dayjs/locale/zh';
+import 'dayjs/locale/ar';
 import 'dayjs/locale/fr';
 import 'dayjs/locale/es';
-import 'dayjs/locale/pt';
 import 'dayjs/locale/de';
-import 'dayjs/locale/it';
-import 'dayjs/locale/ja';
-import 'dayjs/locale/ko';
-import 'dayjs/locale/ar';
 import 'dayjs/locale/tr';
-import 'dayjs/locale/vi';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useModals } from '@gitroom/frontend/components/layout/new-modal';
 import clsx from 'clsx';
@@ -654,8 +646,8 @@ export const CalendarColumn: FC<{
       )}
       <div
         className={clsx(
-          'relative flex flex-col flex-1 text-white rounded-[8px] min-h-[70px]',
-          canDrop && 'border border-[#612BD3]'
+          'relative flex flex-col flex-1 text-textColor rounded-[8px] min-h-[70px]',
+          canDrop && 'border border-[#048FCC]'
         )}
       >
         <div
@@ -728,7 +720,7 @@ export const CalendarColumn: FC<{
               {display !== 'day' && (
                 <div
                   className={clsx(
-                    'group hover:before:h-[30px] w-full h-full rounded-[10px] flex justify-center items-center text-white'
+                    'group hover:before:h-[30px] w-full h-full rounded-[10px] flex justify-center items-center text-textColor'
                   )}
                 >
                   <div

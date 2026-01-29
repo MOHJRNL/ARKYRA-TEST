@@ -11,41 +11,41 @@ export class OauthProvider implements ProvidersInterface {
 
   constructor() {
     const {
-      POSTIZ_OAUTH_AUTH_URL,
-      POSTIZ_OAUTH_CLIENT_ID,
-      POSTIZ_OAUTH_CLIENT_SECRET,
-      POSTIZ_OAUTH_TOKEN_URL,
-      POSTIZ_OAUTH_URL,
-      POSTIZ_OAUTH_USERINFO_URL,
+      ARKYRA_OAUTH_AUTH_URL,
+      ARKYRA_OAUTH_CLIENT_ID,
+      ARKYRA_OAUTH_CLIENT_SECRET,
+      ARKYRA_OAUTH_TOKEN_URL,
+      ARKYRA_OAUTH_URL,
+      ARKYRA_OAUTH_USERINFO_URL,
       FRONTEND_URL,
     } = process.env;
 
-    if (!POSTIZ_OAUTH_USERINFO_URL)
+    if (!ARKYRA_OAUTH_USERINFO_URL)
       throw new Error(
-        'POSTIZ_OAUTH_USERINFO_URL environment variable is not set'
+        'ARKYRA_OAUTH_USERINFO_URL environment variable is not set'
       );
-    if (!POSTIZ_OAUTH_URL)
-      throw new Error('POSTIZ_OAUTH_URL environment variable is not set');
-    if (!POSTIZ_OAUTH_TOKEN_URL)
-      throw new Error('POSTIZ_OAUTH_TOKEN_URL environment variable is not set');
-    if (!POSTIZ_OAUTH_CLIENT_ID)
-      throw new Error('POSTIZ_OAUTH_CLIENT_ID environment variable is not set');
-    if (!POSTIZ_OAUTH_CLIENT_SECRET)
+    if (!ARKYRA_OAUTH_URL)
+      throw new Error('ARKYRA_OAUTH_URL environment variable is not set');
+    if (!ARKYRA_OAUTH_TOKEN_URL)
+      throw new Error('ARKYRA_OAUTH_TOKEN_URL environment variable is not set');
+    if (!ARKYRA_OAUTH_CLIENT_ID)
+      throw new Error('ARKYRA_OAUTH_CLIENT_ID environment variable is not set');
+    if (!ARKYRA_OAUTH_CLIENT_SECRET)
       throw new Error(
-        'POSTIZ_OAUTH_CLIENT_SECRET environment variable is not set'
+        'ARKYRA_OAUTH_CLIENT_SECRET environment variable is not set'
       );
-    if (!POSTIZ_OAUTH_AUTH_URL)
-      throw new Error('POSTIZ_OAUTH_AUTH_URL environment variable is not set');
+    if (!ARKYRA_OAUTH_AUTH_URL)
+      throw new Error('ARKYRA_OAUTH_AUTH_URL environment variable is not set');
     if (!FRONTEND_URL)
       throw new Error('FRONTEND_URL environment variable is not set');
 
-    this.authUrl = POSTIZ_OAUTH_AUTH_URL;
-    this.baseUrl = POSTIZ_OAUTH_URL;
-    this.clientId = POSTIZ_OAUTH_CLIENT_ID;
-    this.clientSecret = POSTIZ_OAUTH_CLIENT_SECRET;
+    this.authUrl = ARKYRA_OAUTH_AUTH_URL;
+    this.baseUrl = ARKYRA_OAUTH_URL;
+    this.clientId = ARKYRA_OAUTH_CLIENT_ID;
+    this.clientSecret = ARKYRA_OAUTH_CLIENT_SECRET;
     this.frontendUrl = FRONTEND_URL;
-    this.tokenUrl = POSTIZ_OAUTH_TOKEN_URL;
-    this.userInfoUrl = POSTIZ_OAUTH_USERINFO_URL;
+    this.tokenUrl = ARKYRA_OAUTH_TOKEN_URL;
+    this.userInfoUrl = ARKYRA_OAUTH_USERINFO_URL;
   }
 
   generateLink(): string {

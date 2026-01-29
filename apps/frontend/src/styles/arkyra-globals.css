@@ -1,5 +1,5 @@
 /**
- * ARKYRA Global Styles
+ * Arkyra Global Styles
  * Al Jazeera Branding + RTL Support + Dark Mode
  */
 
@@ -7,10 +7,16 @@
    FONT DEFINITIONS
    ============================================================================ */
 
+/*
+  Al Jazeera Arabic Font is loaded via next/font/local in src/config/fonts.ts
+  The CSS variable --font-al-jazeera-arabic is made available globally
+*/
+
+/* Legacy font-face for backwards compatibility */
 @font-face {
   font-family: 'Al-Jazeera-Arabic-Bold';
   src: url('/fonts/Al-Jazeera-Arabic-Bold.ttf') format('truetype');
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -18,7 +24,7 @@
 @font-face {
   font-family: 'Al-Jazeera-Arabic-Bold';
   src: url('/fonts/Al-Jazeera-Arabic-Bold.ttf') format('truetype');
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -123,7 +129,7 @@ html[dir="rtl"] {
 }
 
 html[dir="rtl"] body {
-  font-family: 'Al-Jazeera-Arabic-Bold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-al-jazeera-arabic, 'Al-Jazeera-Arabic-Bold'), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html[dir="ltr"] {
@@ -132,7 +138,21 @@ html[dir="ltr"] {
 }
 
 html[dir="ltr"] body {
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-jakarta-sans, 'Inter'), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Apply Al Jazeera font when Arabic language is active */
+html[lang="ar"] body,
+html[lang="ar"] * {
+  font-family: var(--font-al-jazeera-arabic, 'Al-Jazeera-Arabic-Bold'), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* Apply Jakarta Sans font for non-Arabic languages */
+html[lang="en"] body,
+html[lang="fr"] body,
+html[lang="es"] body,
+html[lang="de"] body {
+  font-family: var(--font-jakarta-sans, 'Inter'), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 /* ============================================================================
@@ -181,13 +201,50 @@ p {
 }
 
 a {
-  color: var(--color-primary);
+  color: #048FCC;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-secondary);
+  color: #F8AB0C;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #235170;
+}
+
+/* Light mode link adjustments */
+html:not(.dark) a {
+  color: #235170;
+}
+
+html:not(.dark) a:hover {
+  color: #048FCC;
+}
+
+html:not(.dark) a:active {
+  color: #F8AB0C;
+}
+
+/* Ensure good contrast for visited links */
+a:visited {
+  opacity: 0.85;
+}
+
+/* External links indicator */
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+/* Remove external indicator from button-style links */
+a.btn[target="_blank"]::after,
+a.btn-primary[target="_blank"]::after,
+a.btn-secondary[target="_blank"]::after {
+  content: "";
 }
 
 /* ============================================================================
@@ -207,25 +264,87 @@ a:hover {
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background-color: #048FCC;
   color: white;
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: #00155e;
+  background-color: #F8AB0C;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 8px rgba(217, 119, 87, 0.3);
+}
+
+.btn-primary:active {
+  background-color: #235170;
+  transform: translateY(0);
+}
+
+/* Light mode primary button */
+html:not(.dark) .btn-primary {
+  background-color: #235170;
+}
+
+html:not(.dark) .btn-primary:hover {
+  background-color: #048FCC;
+}
+
+html:not(.dark) .btn-primary:active {
+  background-color: #F8AB0C;
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
+  background-color: #F8AB0C;
+  color: white;
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background-color: #e6ab00;
+  background-color: #048FCC;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 8px rgba(205, 139, 98, 0.3);
+}
+
+.btn-secondary:active {
+  background-color: #235170;
+  transform: translateY(0);
+}
+
+/* AI-specific buttons */
+.btn-ai,
+.btn[data-ai="true"] {
+  background-color: #048FCC;
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-ai:hover,
+.btn[data-ai="true"]:hover {
+  background-color: #F8AB0C;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.4);
+}
+
+.btn-ai:active,
+.btn[data-ai="true"]:active {
+  background-color: #235170;
+  transform: translateY(0);
+}
+
+html:not(.dark) .btn-ai,
+html:not(.dark) .btn[data-ai="true"] {
+  background-color: #235170;
+}
+
+html:not(.dark) .btn-ai:hover,
+html:not(.dark) .btn[data-ai="true"]:hover {
+  background-color: #048FCC;
+}
+
+html:not(.dark) .btn-ai:active,
+html:not(.dark) .btn[data-ai="true"]:active {
+  background-color: #F8AB0C;
 }
 
 /* ============================================================================
@@ -337,10 +456,151 @@ input:focus, textarea:focus, select:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: #048FCC;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
+  background: #F8AB0C;
+}
+
+/* ============================================================================
+   COMMUNITY & SOCIAL LINK ENHANCEMENTS
+   ============================================================================ */
+
+/* Discord support button enhancement */
+#support-discord {
+  transition: all 0.3s ease;
+  border: 2px solid #048FCC;
+}
+
+#support-discord:hover {
+  border-color: #F8AB0C;
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.3);
+  transform: translateY(-2px);
+}
+
+#support-discord svg {
+  color: #048FCC;
+  transition: color 0.2s ease;
+}
+
+#support-discord:hover svg {
+  color: #F8AB0C;
+}
+
+/* Social media link buttons */
+button[href*="discord"],
+button[href*="twitter"],
+button[href*="github"],
+a[data-social="true"] {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+button[href*="discord"]:hover,
+button[href*="twitter"]:hover,
+button[href*="github"]:hover,
+a[data-social="true"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(217, 119, 87, 0.2);
+}
+
+/* ============================================================================
+   AI COMPONENT ICON COLORS
+   ============================================================================ */
+
+/* Ensure all AI-related icons have proper colors */
+[class*="ai"] svg path,
+[class*="generate"] svg path,
+.ai-btn svg path {
+  stroke: #ffffff !important;
+  fill: none;
+}
+
+/* AI icon wrapper colors */
+[class*="ai"] svg,
+[class*="generate"] svg,
+.ai-btn svg {
+  color: #ffffff;
+}
+
+/* ============================================================================
+   BUTTON FOCUS STATES
+   ============================================================================ */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #048FCC;
+  outline-offset: 2px;
+}
+
+html:not(.dark) button:focus-visible,
+html:not(.dark) a:focus-visible {
+  outline-color: #235170;
+}
+
+/* ============================================================================
+   DROPDOWN & MENU HOVER STATES
+   ============================================================================ */
+
+/* Dropdown menu items with proper colors */
+ul li:hover,
+.dropdown-item:hover,
+[role="menuitem"]:hover {
+  background-color: rgba(217, 119, 87, 0.1);
+  color: #048FCC;
+}
+
+html:not(.dark) ul li:hover,
+html:not(.dark) .dropdown-item:hover,
+html:not(.dark) [role="menuitem"]:hover {
+  background-color: rgba(195, 85, 51, 0.1);
+  color: #235170;
+}
+
+/* ============================================================================
+   INTERACTIVE ELEMENT ANIMATIONS
+   ============================================================================ */
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea,
+select {
+  transition: all 0.2s ease;
+}
+
+/* Loading states should maintain color */
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Active states */
+button:active:not([disabled]),
+a:active {
+  transform: scale(0.98);
+}
+
+/* ============================================================================
+   CONTRAST IMPROVEMENTS
+   ============================================================================ */
+
+/* Ensure text on colored backgrounds has good contrast */
+.bg-forth,
+.bg-seventh,
+[style*="background-color: #048FCC"],
+[style*="background-color: #F8AB0C"],
+[style*="background-color: #235170"] {
+  color: #ffffff !important;
+}
+
+.bg-forth *,
+.bg-seventh *,
+[style*="background-color: #048FCC"] *,
+[style*="background-color: #F8AB0C"] *,
+[style*="background-color: #235170"] * {
+  color: #ffffff !important;
 }

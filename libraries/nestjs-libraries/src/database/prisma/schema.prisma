@@ -40,6 +40,8 @@ model Organization {
   usedCodes         UsedCodes[]
   users             UserOrganization[]
   webhooks          Webhooks[]
+  aiUsageTracking   AIUsageTracking[]
+  aiQuota           AIQuota?
 }
 
 model Tags {
@@ -104,6 +106,7 @@ model User {
   organizations         UserOrganization[]
   sendSuccessEmails     Boolean            @default(true)
   sendFailureEmails     Boolean            @default(true)
+  aiUsageTracking       AIUsageTracking[]
 
   @@unique([email, providerName])
   @@index([lastReadNotifications])
@@ -849,6 +852,7 @@ enum State {
 }
 
 enum SubscriptionTier {
+  FREE
   STANDARD
   PRO
   TEAM
@@ -885,4 +889,121 @@ enum ShortLinkPreference {
   ASK
   YES
   NO
+}
+
+// ============================================================================
+// AI ROUTER SYSTEM - Hybrid OpenAI + GLM-4.7 Provider
+// ============================================================================
+
+// AI Usage Tracking - Token and cost tracking per request
+model AIUsageTracking {
+  id              String         @id @default(uuid())
+  organizationId  String
+  userId          String?
+  provider        AIProviderType
+  taskType        AITaskType
+  accuracyLevel   AccuracyLevel
+  inputTokens     Int
+  outputTokens    Int
+  totalTokens     Int
+  estimatedCost   Float          // In USD
+  latencyMs       Int            // Response time in milliseconds
+  success         Boolean
+  errorMessage    String?
+  metadata        Json?          // Additional context
+  createdAt       DateTime       @default(now())
+
+  organization    Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user            User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt])
+  @@index([provider, createdAt])
+  @@index([taskType, createdAt])
+  @@index([userId, createdAt])
+}
+
+// AI Quota Management - Monthly limits per workspace
+model AIQuota {
+  id                      String           @id @default(uuid())
+  organizationId          String           @unique
+  planTier                SubscriptionTier
+
+  // OpenAI Quotas
+  openaiMonthlyTokenLimit Int              // Total tokens per month
+  openaiUsedTokens        Int              @default(0)
+  openaiRequestCount      Int              @default(0)
+
+  // GLM-4.7 Quotas
+  glmMonthlyTokenLimit    Int              // Total tokens per month
+  glmUsedTokens           Int              @default(0)
+  glmRequestCount         Int              @default(0)
+
+  // Reset tracking
+  lastResetAt             DateTime         @default(now())
+  nextResetAt             DateTime
+
+  // Alerts
+  softLimitReached        Boolean          @default(false)
+  hardLimitReached        Boolean          @default(false)
+
+  createdAt               DateTime         @default(now())
+  updatedAt               DateTime         @updatedAt
+
+  organization            Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId])
+  @@index([nextResetAt])
+}
+
+// AI Provider Metrics - Performance tracking
+model AIProviderMetrics {
+  id                String         @id @default(uuid())
+  provider          AIProviderType
+  date              DateTime       // Daily aggregation
+
+  totalRequests     Int
+  successfulRequests Int
+  failedRequests    Int
+
+  avgLatencyMs      Float
+  p95LatencyMs      Float
+  p99LatencyMs      Float
+
+  totalTokensUsed   Int
+  totalCost         Float
+
+  errorRate         Float
+  availabilityRate  Float
+
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  @@unique([provider, date])
+  @@index([provider, date])
+  @@index([date])
+}
+
+// AI Provider Types
+enum AIProviderType {
+  OPENAI
+  GLM_4_7
+  CLAUDE
+  MISTRAL
+}
+
+// AI Task Types
+enum AITaskType {
+  AUTOCOMPLETE
+  CAPTION_REWRITE
+  POST_GENERATION
+  IMAGE_GENERATION
+  VIDEO_GENERATION
+  GENERIC
+}
+
+// Accuracy Levels
+enum AccuracyLevel {
+  STANDARD
+  HIGH
+  PREMIUM
 }

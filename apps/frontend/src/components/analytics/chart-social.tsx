@@ -28,8 +28,8 @@ export const ChartSocial: FC<{
     const gradient = ref.current
       .getContext('2d')
       .createLinearGradient(0, 0, 0, ref.current.height);
-    gradient.addColorStop(0, 'rgb(90,46,203)'); // Start color with some transparency
-    gradient.addColorStop(1, 'rgb(65, 38, 136, 1)');
+    gradient.addColorStop(0, 'rgb(217, 119, 87)'); // Arkyra terracotta
+    gradient.addColorStop(1, 'rgb(195, 85, 51, 1)'); // Arkyra darker terracotta
     chart.current = new DrawChart(ref.current!, {
       type: 'line',
       options: {

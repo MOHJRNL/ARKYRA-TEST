@@ -1,9 +1,9 @@
 /**
- * ARKYRA Branding Configuration
- * 
+ * Arkyra Branding Configuration
+ *
  * This file defines the branding for both:
- * - AJ ARKYRA: Internal enterprise platform for Al Jazeera
- * - ARKYRA: SaaS product (arkyra.pro)
+ * - AJ Arkyra: Internal enterprise platform for Al Jazeera
+ * - Arkyra: SaaS product (arkyra.pro)
  */
 
 export type BrandType = 'aj-arkyra' | 'arkyra-saas';
@@ -34,8 +34,8 @@ export interface BrandingConfig {
 
 export const BRANDING_CONFIG: Record<BrandType, BrandingConfig> = {
   'aj-arkyra': {
-    name: 'AJ ARKYRA',
-    displayName: 'AJ ARKYRA',
+    name: 'AJ Arkyra',
+    displayName: 'AJ Arkyra',
     description: 'Al Jazeera Enterprise Social Media Management Platform',
     website: 'https://internal.aljazeera.com/arkyra',
     logo: {
@@ -52,30 +52,30 @@ export const BRANDING_CONFIG: Record<BrandType, BrandingConfig> = {
       primary: 'Al-Jazeera-Arabic-Bold',
       secondary: 'Inter, system-ui, sans-serif',
     },
-    supportedLanguages: ['ar', 'en', 'fr', 'es', 'de'],
+    supportedLanguages: ['ar', 'en', 'fr', 'es', 'de', 'tr'],
     defaultLanguage: 'ar',
     rtlLanguages: ['ar'],
   },
   'arkyra-saas': {
-    name: 'ARKYRA',
-    displayName: 'ARKYRA Pulse',
-    description: 'Enterprise Social Media Management Platform',
+    name: 'Arkyra',
+    displayName: 'Arkyra Digital Command Center',
+    description: 'Power. Precision. Scale.',
     website: 'https://arkyra.pro',
     logo: {
-      light: '/logos/arkyra-pulse-light.png',
-      dark: '/logos/arkyra-pulse-light.png',
+      light: '/logos/arkyra-logo-transparent.png',
+      dark: '/logos/arkyra-logo-transparent.png',
     },
     colors: {
-      primary: '#001969', // Primary Blue
-      secondary: '#FFBE00', // Gold
-      accent: '#E74C3C', // Red
-      gold: '#FFBE00',
+      primary: '#001969', // Al Jazeera Blue
+      secondary: '#F8AB0C', // Al Jazeera Gold
+      accent: '#048FCC', // Al Jazeera Light Blue
+      gold: '#F8AB0C', // Al Jazeera Gold
     },
     fonts: {
-      primary: 'Al-Jazeera-Arabic-Bold',
+      primary: 'Plus Jakarta Sans, Inter, system-ui, sans-serif',
       secondary: 'Inter, system-ui, sans-serif',
     },
-    supportedLanguages: ['ar', 'en', 'fr', 'es', 'de'],
+    supportedLanguages: ['en', 'ar', 'fr', 'es', 'de', 'tr'],
     defaultLanguage: 'en',
     rtlLanguages: ['ar'],
   },
@@ -97,15 +97,29 @@ export function getCurrentBrand(): BrandType {
 }
 
 /**
- * Check if current brand is AJ ARKYRA (internal)
+ * Check if current brand is AJ Arkyra (internal)
  */
 export function isAJArkyra(): boolean {
   return getCurrentBrand() === 'aj-arkyra';
 }
 
 /**
- * Check if current brand is ARKYRA SaaS
+ * Check if current brand is Arkyra SaaS
  */
 export function isArkyraSaaS(): boolean {
   return getCurrentBrand() === 'arkyra-saas';
+}
+
+/**
+ * Get the brand name for use in page titles and metadata
+ */
+export function getBrandName(): string {
+  return getBrandingConfig().name;
+}
+
+/**
+ * Get the brand display name
+ */
+export function getBrandDisplayName(): string {
+  return getBrandingConfig().displayName;
 }

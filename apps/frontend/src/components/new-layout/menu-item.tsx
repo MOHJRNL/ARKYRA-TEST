@@ -17,12 +17,14 @@ export const MenuItem: FC<{ label: string; icon: ReactNode; path: string }> = ({
       prefetch={true}
       href={path}
       className={clsx(
-        'w-full minCustom:h-[54px] custom:h-[30px] py-[8px] px-[6px] gap-[4px] flex flex-col custom:flex-row text-[10px] font-[600] items-center minCustom:justify-center rounded-[12px] hover:text-textItemFocused hover:bg-boxFocused',
-        isActive ? 'text-textItemFocused bg-boxFocused' : 'text-textItemBlur'
+        'w-full h-[54px] py-[8px] px-[6px] gap-[6px] flex flex-col text-[10px] font-[600] items-center justify-center rounded-[12px] transition-all',
+        isActive
+          ? 'text-textItemFocused bg-boxFocused shadow-sm'
+          : 'text-textItemBlur hover:text-textItemFocused hover:bg-boxFocused/50'
       )}
     >
-      <div className="custom:hidden">{icon}</div>
-      <div className="text-[10px]">{label}</div>
+      <div className="flex items-center justify-center w-[20px] h-[20px]">{icon}</div>
+      <div className="text-[10px] leading-tight">{label}</div>
     </Link>
   );
 };

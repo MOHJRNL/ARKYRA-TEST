@@ -20,7 +20,12 @@ export const Support = () => {
   return (
     <div
       id="support-discord"
-      className="bg-customColor39 w-[194px] h-[58px] fixed end-[20px] bottom-[20px] z-[500] text-[16px] text-customColor40 rounded-[30px] !rounded-br-[0] cursor-pointer flex justify-center items-center gap-[10px]"
+      className="bg-customColor39 w-[194px] h-[58px] fixed end-[20px] bottom-[20px] z-[500] text-[16px] text-customColor40 rounded-[30px] !rounded-br-[0] cursor-pointer flex justify-center items-center gap-[10px] transition-all duration-200 hover:shadow-lg"
+      style={{
+        backgroundColor: 'var(--new-bgColorInner)',
+        color: 'var(--new-btn-text)',
+        border: '2px solid #048FCC'
+      }}
       onClick={() => window.open(discordUrl)}
     >
       <div>

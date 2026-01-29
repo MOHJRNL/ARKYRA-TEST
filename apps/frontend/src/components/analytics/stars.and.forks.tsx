@@ -29,7 +29,7 @@ export const StarsAndForks: FC<StarsAndForksInterface> = (props) => {
                   />
                 </svg>
               </div>
-              <div className="text-[20px]">
+              <div className="text-lg">
                 {item.login
                   .split('/')[1]
                   .split('')
@@ -45,13 +45,13 @@ export const StarsAndForks: FC<StarsAndForksInterface> = (props) => {
                 {item.stars.length ? (
                   <Chart list={item.stars} />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-3xl">
+                  <div className="w-full h-full flex items-center justify-center text-2xl">
                     {t('processing_stars', 'Processing stars...')}
                   </div>
                 )}
               </div>
             </div>
-            <div className="text-[50px] leading-[60px]">
+            <div className="text-5xl leading-tight">
               {item?.stars[item.stars.length - 1]?.totalStars}
             </div>
           </div>
@@ -72,7 +72,7 @@ export const StarsAndForks: FC<StarsAndForksInterface> = (props) => {
                   />
                 </svg>
               </div>
-              <div className="text-[20px]">
+              <div className="text-lg">
                 {item.login
                   .split('/')[1]
                   .split('')
@@ -88,13 +88,13 @@ export const StarsAndForks: FC<StarsAndForksInterface> = (props) => {
                 {item.forks.length ? (
                   <Chart list={item.forks} />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-3xl">
+                  <div className="w-full h-full flex items-center justify-center text-2xl">
                     {t('processing_stars', 'Processing stars...')}
                   </div>
                 )}
               </div>
             </div>
-            <div className="text-[50px] leading-[60px]">
+            <div className="text-5xl leading-tight">
               {item?.forks[item.forks.length - 1]?.totalForks}
             </div>
           </div>
@@ -136,7 +136,7 @@ export const StarsAndForks: FC<StarsAndForksInterface> = (props) => {
                   </svg>
                 )}
               </div>
-              <div className="text-[20px]">
+              <div className="text-lg">
                 {p === 0
                   ? t('last_github_trending', 'Last Github Trending')
                   : t('next_predicted_github_trending', 'Next Predicted GitHub Trending')}
@@ -144,7 +144,7 @@ export const StarsAndForks: FC<StarsAndForksInterface> = (props) => {
             </div>
             <div className="flex items-center">
               <div className="w-[2px] h-[30px] bg-customColor11 me-[16px]"></div>
-              <div className="text-[24px] flex-1">
+              <div className="text-xl flex-1">
                 <UtcToLocalDateRender
                   date={
                     p === 0 ? props.trending.last : props.trending.predictions
@@ -154,7 +154,7 @@ export const StarsAndForks: FC<StarsAndForksInterface> = (props) => {
               </div>
               <div
                 className={clsx(
-                  'text-[24px]',
+                  'text-xl',
                   p === 0 ? 'text-customColor12' : 'text-customColor13'
                 )}
               >
@@ -170,7 +170,7 @@ export const StarsAndForks: FC<StarsAndForksInterface> = (props) => {
               </div>
               <div
                 className={clsx(
-                  'text-[24px]',
+                  'text-xl',
                   p === 0 ? 'text-customColor12' : 'text-customColor13'
                 )}
               >

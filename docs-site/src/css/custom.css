@@ -1,0 +1,89 @@
+/**
+ * Arkyra Documentation - Custom Styles
+ * Based on Al Jazeera brand colors
+ */
+
+/* Light mode - Al Jazeera Blue as primary */
+:root {
+  --ifm-color-primary: #048FCC;
+  --ifm-color-primary-dark: #0481b8;
+  --ifm-color-primary-darker: #047aad;
+  --ifm-color-primary-darkest: #03648f;
+  --ifm-color-primary-light: #059de0;
+  --ifm-color-primary-lighter: #06a4eb;
+  --ifm-color-primary-lightest: #1cb0f0;
+
+  /* Al Jazeera accent colors */
+  --ifm-color-accent-gold: #F8AB0C;
+  --ifm-color-accent-teal: #235170;
+  --ifm-color-accent-navy: #001969;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(4, 143, 204, 0.1);
+
+  /* Typography */
+  --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+}
+
+/* Dark mode - Lighter blue for better readability */
+[data-theme='dark'] {
+  --ifm-color-primary: #1cb0f0;
+  --ifm-color-primary-dark: #08a5ea;
+  --ifm-color-primary-darker: #079ddf;
+  --ifm-color-primary-darkest: #0681b8;
+  --ifm-color-primary-light: #31baf2;
+  --ifm-color-primary-lighter: #40c0f3;
+  --ifm-color-primary-lightest: #5fcbf5;
+
+  --docusaurus-highlighted-code-line-bg: rgba(28, 176, 240, 0.15);
+
+  /* Dark mode background improvements */
+  --ifm-background-color: #0e0e0e;
+  --ifm-background-surface-color: #1a1a1a;
+}
+
+/* Custom styling for code blocks */
+.code-block-dark-theme {
+  background-color: var(--ifm-color-accent-navy);
+}
+
+/* Navbar styling */
+.navbar {
+  border-bottom: 2px solid var(--ifm-color-primary);
+}
+
+/* Footer styling */
+.footer {
+  background-color: var(--ifm-color-accent-navy);
+}
+
+[data-theme='light'] .footer {
+  background-color: var(--ifm-color-accent-teal);
+}
+
+/* Accent callouts */
+.alert--warning {
+  --ifm-alert-background-color: var(--ifm-color-accent-gold);
+  --ifm-alert-background-color-highlight: rgba(248, 171, 12, 0.15);
+}
+
+/* Link colors */
+a {
+  color: var(--ifm-color-primary);
+}
+
+a:hover {
+  color: var(--ifm-color-primary-darker);
+}
+
+/* Sidebar */
+.menu__link--active {
+  background-color: rgba(4, 143, 204, 0.1);
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+/* Cards and containers */
+.card {
+  border: 1px solid var(--ifm-color-primary);
+}

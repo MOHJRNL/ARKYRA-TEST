@@ -19,6 +19,11 @@ services:
       - arkyra-postgres-dev-data:/var/lib/postgresql/data
     networks:
       - arkyra-dev-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U arkyra -d arkyra-dev-db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   arkyra-redis:
     image: redis:7-alpine
@@ -30,16 +35,23 @@ services:
       - arkyra-dev-network
 
   arkyra-temporal:
-    image: temporalio/auto-setup:1.28.1
+    image: temporalio/auto-setup:1.25.1
     container_name: arkyra-temporal-dev
-    restart: always
+    depends_on:
+      arkyra-postgres:
+        condition: service_healthy
     ports:
-      - "7234:7233" # Use a different port
-      - "8081:8080" # Temporal UI
+      - "7234:7233"
+      - "8081:8080"
     environment:
-      - DB=sqlite3
-      - TEMPORAL_NAMESPACE=default
-      - TEMPORAL_CORS_ORIGINS=http://localhost:4200
+      - DB=postgres12_pgx
+      - DB_PORT=5432
+      - POSTGRES_SEEDS=arkyra-postgres
+      - POSTGRES_USER=arkyra
+      - POSTGRES_PWD=arkyra-password
+      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
+    volumes:
+      - ./temporal-dynamicconfig:/etc/temporal/config/dynamicconfig
     networks:
       - arkyra-dev-network
 
