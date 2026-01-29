@@ -131,7 +131,7 @@ export const ThirdPartyListComponent: FC<{ reload: () => void }> = (props) => {
         <div
           onClick={addApiKey(p.title, p.identifier)}
           key={p.identifier}
-          className="w-full h-full p-[20px] min-h-[100px] text-[14px] bg-newTableHeader hover:bg-newTableBorder rounded-[8px] transition-all text-textColor relative flex flex-col gap-[15px] cursor-pointer"
+          className="w-full h-full p-[20px] min-h-[100px] text-[14px] bg-newTableHeader hover:bg-newTableBorder border border-gray-200 dark:border-gray-700 hover:border-[#048FCC]/40 shadow-sm hover:shadow-md rounded-[8px] transition-all dark:text-textColor text-gray-900 relative flex flex-col gap-[15px] cursor-pointer"
         >
           <div>
             <img
@@ -139,8 +139,8 @@ export const ThirdPartyListComponent: FC<{ reload: () => void }> = (props) => {
               src={`/icons/third-party/${p.identifier}.png`}
             />
           </div>
-          <div className="whitespace-pre-wrap text-left text-lg">{p.title}</div>
-          <div className="whitespace-pre-wrap text-left">{p.description}</div>
+          <div className="whitespace-pre-wrap text-left text-lg font-semibold dark:text-textColor text-gray-900">{p.title}</div>
+          <div className="whitespace-pre-wrap text-left dark:text-gray-300 text-gray-700 flex-1">{p.description}</div>
           <div className="w-full flex">
             <Button className="w-full">Add</Button>
           </div>

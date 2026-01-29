@@ -138,7 +138,7 @@ export const DayView = () => {
       <div className="absolute start-0 top-0 w-full h-full flex flex-col overflow-auto scrollbar scrollbar-thumb-fifth scrollbar-track-newBgColor">
         {options.map((option) => (
           <Fragment key={option[0].time}>
-            <div className="text-center text-[14px] min-h-[21px]">
+            <div className="text-center text-[14px] min-h-[21px] dark:text-textColor text-gray-900">
               {newDayjs()
                 .utc()
                 .startOf('day')
@@ -202,12 +202,12 @@ export const WeekView = () => {
               key={day.name}
               className="p-2 text-center bg-newTableHeader flex justify-center items-center flex-col h-[62px] rounded-[8px] sticky top-0 z-[20]"
             >
-              <div className="text-[14px] font-[500] text-newTableText">
+              <div className="text-[14px] font-[500] text-newTableText dark:text-newTableText text-gray-900">
                 {day.name}
               </div>
               <div
                 className={clsx(
-                  'text-[14px] font-[600] flex items-center justify-center gap-[6px]',
+                  'text-[14px] font-[600] flex items-center justify-center gap-[6px] dark:text-textColor text-gray-900',
                   day.day === newDayjs().format('L') &&
                     'text-newTableTextFocused'
                 )}
@@ -221,7 +221,7 @@ export const WeekView = () => {
           ))}
           {hours.map((hour) => (
             <Fragment key={hour}>
-              <div className="p-2 pe-4 text-center items-center justify-center flex text-[14px] text-newTableText">
+              <div className="p-2 pe-4 text-center items-center justify-center flex text-[14px] dark:text-newTableText text-gray-900">
                 {convertTimeFormatBasedOnLocality(hour)}
               </div>
               {localizedDays.map((day, indexDay) => (
@@ -300,7 +300,7 @@ export const MonthView = () => {
               key={day}
               className="z-[20] p-2 bg-newTableHeader flex justify-center items-center flex-col h-[62px] rounded-[8px] sticky top-0"
             >
-              <div>{day}</div>
+              <div className="dark:text-textColor text-gray-900 font-[500]">{day}</div>
             </div>
           ))}
           {calendarDays.map((date, index) => (
@@ -642,7 +642,7 @@ export const CalendarColumn: FC<{
       ref={drop as any}
     >
       {display === 'month' && (
-        <div className={clsx('pt-[6px] text-[14px]')}>{getDate.date()}</div>
+        <div className={clsx('pt-[6px] text-[14px] dark:text-textColor text-gray-900 font-[600]')}>{getDate.date()}</div>
       )}
       <div
         className={clsx(

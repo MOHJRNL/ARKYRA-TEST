@@ -88,13 +88,13 @@ export const ChangeLanguageComponent = () => {
   }, []);
 
   return (
-    <div className="relative">
-      <div className="grid grid-cols-4 gap-2">
+    <div className="relative z-[1000] pointer-events-auto">
+      <div className="grid grid-cols-4 gap-2 pointer-events-auto">
         {availableLanguages.map((language) => (
           <div
             className={clsx(
-              'flex items-center flex-col bg-newTableHeader hover:bg-newTableBorder p-[20px] cursor-pointer gap-2',
-              language === currentLanguage ? 'border border-textColor' : ''
+              'flex items-center flex-col bg-newTableHeader hover:bg-newTableBorder p-[20px] cursor-pointer gap-2 rounded-[8px] pointer-events-auto transition-all hover:shadow-md',
+              language === currentLanguage ? 'border-2 border-[#048FCC]' : 'border border-gray-200 dark:border-gray-700'
             )}
             key={language}
             onClick={() => handleLanguageChange(language)}
@@ -108,7 +108,10 @@ export const ChangeLanguageComponent = () => {
               }}
               title={language}
             />
-            <Text weight={language === currentLanguage ? 'bold' : 'normal'}>
+            <Text
+              weight={language === currentLanguage ? 'bold' : 'normal'}
+              className="dark:text-textColor text-gray-900"
+            >
               {getLanguageName(language)}
             </Text>
           </div>

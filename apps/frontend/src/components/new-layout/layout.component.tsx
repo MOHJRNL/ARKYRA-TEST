@@ -39,6 +39,7 @@ import { OrganizationSelector } from '@gitroom/frontend/components/layout/organi
 import { PreConditionComponent } from '@gitroom/frontend/components/layout/pre-condition.component';
 import { AttachToFeedbackIcon } from '@gitroom/frontend/components/new-layout/sentry.feedback.component';
 import { FirstBillingComponent } from '@gitroom/frontend/components/billing/first.billing.component';
+import { FooterComponent } from '@gitroom/frontend/components/layout/footer.component';
 
 const jakartaSans = Plus_Jakarta_Sans({
   weight: ['600', '500', '700'],
@@ -128,6 +129,9 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                       </div>
                     </div>
                     <div className="flex flex-1 gap-[1px]">{children}</div>
+                    <div className="bg-newBgColorInner border-t border-gray-200 dark:border-gray-700">
+                      <FooterComponent />
+                    </div>
                   </div>
                 </div>
               )}

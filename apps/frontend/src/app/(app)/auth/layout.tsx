@@ -7,6 +7,7 @@ import loadDynamic from 'next/dynamic';
 import { TestimonialComponent } from '@gitroom/frontend/components/auth/testimonial.component';
 import { LogoTextComponent } from '@gitroom/frontend/components/ui/logo-text.component';
 import { getBrandingConfig } from '@gitroom/frontend/config/branding';
+import { FooterComponent } from '@gitroom/frontend/components/layout/footer.component';
 const ReturnUrlComponent = loadDynamic(() => import('./return.url.component'));
 export default async function AuthLayout({
   children,
@@ -34,6 +35,7 @@ export default async function AuthLayout({
           {branding.displayName} To Grow Their Social Presence
         </div>
         <TestimonialComponent />
+        <FooterComponent />
       </div>
     </div>
   );

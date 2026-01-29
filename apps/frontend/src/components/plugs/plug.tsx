@@ -198,11 +198,11 @@ export const PlugItem: FC<{
     <div
       onClick={() => addPlug(data)}
       key={plug.title}
-      className="w-full h-[300px] rounded-[8px] bg-newTableHeader hover:bg-newTableBorder"
+      className="w-full h-[300px] rounded-[8px] bg-newTableHeader hover:bg-newTableBorder border dark:border-gray-700 border-gray-200 shadow-sm hover:shadow-md hover:border-[#048FCC]/40 transition-all cursor-pointer"
     >
       <div key={plug.title} className="p-[16px] h-full flex flex-col flex-1">
         <div className="flex">
-          <div className="text-[18px] mb-[8px] flex-1">{plug.title}</div>
+          <div className="text-[18px] mb-[8px] flex-1 dark:text-textColor text-gray-900 font-[500]">{plug.title}</div>
           {!!data && (
             <div onClick={(e) => e.stopPropagation()}>
               <Slider
@@ -213,7 +213,7 @@ export const PlugItem: FC<{
             </div>
           )}
         </div>
-        <div className="flex-1">{plug.description}</div>
+        <div className="flex-1 dark:text-gray-300 text-gray-700 line-clamp-4">{plug.description}</div>
         <Button>{!data ? 'Set Plug' : 'Edit Plug'}</Button>
       </div>
     </div>

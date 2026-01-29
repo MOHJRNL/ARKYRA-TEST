@@ -447,7 +447,7 @@ export const AddProviderComponent: FC<{
                   }
                 : {})}
               className={
-                'w-full h-[100px] text-[14px] p-[10px] rounded-[8px] bg-newTableHeader text-textColor relative justify-center items-center flex flex-col gap-[10px] cursor-pointer'
+                'w-full h-[100px] text-[14px] p-[10px] rounded-[8px] bg-newTableHeader border border-gray-200 dark:border-gray-700 dark:text-textColor text-gray-900 relative justify-center items-center flex flex-col gap-[10px] cursor-pointer hover:bg-newTableBorder hover:border-[#048FCC]/40 hover:shadow-md transition-all'
               }
             >
               <div>
@@ -460,7 +460,7 @@ export const AddProviderComponent: FC<{
                   />
                 )}
               </div>
-              <div className="whitespace-pre-wrap text-center">
+              <div className="whitespace-pre-wrap text-center dark:text-textColor text-gray-900">
                 {item.name}
                 {!!item.toolTip && (
                   <svg
@@ -490,7 +490,7 @@ export const AddProviderComponent: FC<{
               <div
                 key={item.identifier}
                 onClick={showApiButton(item.identifier, item.name)}
-                className="w-[120px] h-[100px] bg-input text-textColor justify-center items-center flex flex-col gap-[10px] cursor-pointer"
+                className="w-[120px] h-[100px] bg-input border border-gray-200 dark:border-gray-700 dark:text-textColor text-gray-900 justify-center items-center flex flex-col gap-[10px] cursor-pointer hover:bg-newTableBorder hover:border-[#048FCC]/40 hover:shadow-md transition-all rounded-[8px]"
               >
                 <div>
                   <img
