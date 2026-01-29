@@ -12,6 +12,7 @@ import { VideoModule } from '@gitroom/nestjs-libraries/videos/video.module';
 import { SentryModule } from '@sentry/nestjs/setup';
 import { FILTER } from '@gitroom/nestjs-libraries/sentry/sentry.exception';
 import { ChatModule } from '@gitroom/nestjs-libraries/chat/chat.module';
+import { AIRouterModule } from '@gitroom/nestjs-libraries/ai-router';
 import { getTemporalModule } from '@gitroom/nestjs-libraries/temporal/temporal.module';
 import { TemporalRegisterMissingSearchAttributesModule } from '@gitroom/nestjs-libraries/temporal/temporal.register';
 import { InfiniteWorkflowRegisterModule } from '@gitroom/nestjs-libraries/temporal/infinite.workflow.register';
@@ -27,6 +28,7 @@ import { InfiniteWorkflowRegisterModule } from '@gitroom/nestjs-libraries/tempor
     ThirdPartyModule,
     VideoModule,
     ChatModule,
+    AIRouterModule,
     getTemporalModule(false),
     TemporalRegisterMissingSearchAttributesModule,
     InfiniteWorkflowRegisterModule,
