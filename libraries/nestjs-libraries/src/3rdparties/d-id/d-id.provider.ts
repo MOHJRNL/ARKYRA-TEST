@@ -41,6 +41,11 @@ interface DIdVoice {
 }
 
 /**
+ * Base URL for D-ID API
+ */
+const DID_BASE_URL = 'https://api.d-id.com';
+
+/**
  * D-ID Provider
  *
  * D-ID is an AI platform for creating talking avatars from photos.
@@ -56,8 +61,6 @@ interface DIdVoice {
   fields: [],
 })
 export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
-  private readonly baseUrl = 'https://api.d-id.com';
-
   /**
    * Check if the API key is valid by fetching credits information
    *
@@ -68,7 +71,7 @@ export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
     apiKey: string
   ): Promise<false | { name: string; username: string; id: string }> {
     try {
-      const response = await fetch(`${this.baseUrl}/credits`, {
+      const response = await fetch(`${DID_BASE_URL}/credits`, {
         method: 'GET',
         headers: {
           'Authorization': `Basic ${apiKey}`,
@@ -100,7 +103,7 @@ export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
    */
   async presenters(apiKey: string): Promise<DIdPresenter[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/images`, {
+      const response = await fetch(`${DID_BASE_URL}/images`, {
         method: 'GET',
         headers: {
           'Authorization': `Basic ${apiKey}`,
@@ -127,7 +130,7 @@ export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
    */
   async voices(apiKey: string): Promise<DIdVoice[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/tts/voices`, {
+      const response = await fetch(`${DID_BASE_URL}/tts/voices`, {
         method: 'GET',
         headers: {
           'Authorization': `Basic ${apiKey}`,

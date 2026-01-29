@@ -18,6 +18,11 @@ interface GA4Data {
 }
 
 /**
+ * Base URL for Google Analytics 4 API
+ */
+const GA4_BASE_URL = 'https://analyticsdata.googleapis.com/v1beta';
+
+/**
  * Google Analytics 4 Provider
  *
  * Google Analytics 4 (GA4) is the latest version of Google's analytics platform.
@@ -33,8 +38,6 @@ interface GA4Data {
   fields: [],
 })
 export class GA4Provider extends ThirdPartyAbstract<GA4Data> {
-  private readonly baseUrl: string = 'https://analyticsdata.googleapis.com/v1beta';
-
   /**
    * Check if the API key is valid by testing API access
    *
@@ -83,7 +86,7 @@ export class GA4Provider extends ThirdPartyAbstract<GA4Data> {
       const keyParam = !apiKey.startsWith('ya29.') ? `?key=${apiKey}` : '';
 
       const response = await fetch(
-        `${this.baseUrl}/properties/${data.property_id}:runReport${keyParam}`,
+        `${GA4_BASE_URL}/properties/${data.property_id}:runReport${keyParam}`,
         {
           method: 'POST',
           headers: {
@@ -137,7 +140,7 @@ export class GA4Provider extends ThirdPartyAbstract<GA4Data> {
       const keyParam = !apiKey.startsWith('ya29.') ? `?key=${apiKey}` : '';
 
       const response = await fetch(
-        `${this.baseUrl}/properties/${data.property_id}:runRealtimeReport${keyParam}`,
+        `${GA4_BASE_URL}/properties/${data.property_id}:runRealtimeReport${keyParam}`,
         {
           method: 'POST',
           headers: {
@@ -179,7 +182,7 @@ export class GA4Provider extends ThirdPartyAbstract<GA4Data> {
       const keyParam = !apiKey.startsWith('ya29.') ? `?key=${apiKey}` : '';
 
       const response = await fetch(
-        `${this.baseUrl}/properties/${propertyId}/metadata${keyParam}`,
+        `${GA4_BASE_URL}/properties/${propertyId}/metadata${keyParam}`,
         {
           method: 'GET',
           headers: authHeader,

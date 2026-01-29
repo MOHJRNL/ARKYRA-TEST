@@ -25,6 +25,11 @@ interface SpreadsheetInfo {
 }
 
 /**
+ * Base URL for Google Sheets API
+ */
+const GOOGLE_SHEETS_BASE_URL = 'https://sheets.googleapis.com/v4';
+
+/**
  * Google Sheets Provider
  *
  * Google Sheets integration for reading and writing spreadsheet data.
@@ -40,8 +45,6 @@ interface SpreadsheetInfo {
   fields: [],
 })
 export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
-  private readonly baseUrl: string = 'https://sheets.googleapis.com/v4';
-
   /**
    * Check if the API key is valid by testing API access
    *
@@ -54,7 +57,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
     try {
       // Try to validate by making a simple API call
       const response = await fetch(
-        `${this.baseUrl}/spreadsheets/test?key=${apiKey}`,
+        `${GOOGLE_SHEETS_BASE_URL}/spreadsheets/test?key=${apiKey}`,
         {
           method: 'GET',
         }
@@ -97,7 +100,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
       const keyParam = !apiKey.startsWith('ya29.') ? `?key=${apiKey}` : '';
 
       const response = await fetch(
-        `${this.baseUrl}/spreadsheets/${spreadsheetId}${keyParam}`,
+        `${GOOGLE_SHEETS_BASE_URL}/spreadsheets/${spreadsheetId}${keyParam}`,
         {
           method: 'GET',
           headers: authHeader,

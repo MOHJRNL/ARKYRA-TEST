@@ -38,6 +38,11 @@ interface SynthesiaVoice {
 }
 
 /**
+ * Base URL for Synthesia API
+ */
+const SYNTHESIA_BASE_URL = 'https://api.synthesia.io/v2';
+
+/**
  * Synthesia Provider
  *
  * Synthesia is an AI video generation platform that creates professional videos
@@ -54,8 +59,6 @@ interface SynthesiaVoice {
   fields: [],
 })
 export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
-  private readonly baseUrl: string = 'https://api.synthesia.io/v2';
-
   /**
    * Check if the API key is valid by fetching user information
    *
@@ -66,7 +69,7 @@ export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
     apiKey: string
   ): Promise<false | { name: string; username: string; id: string }> {
     try {
-      const response = await fetch(`${this.baseUrl}/users/me`, {
+      const response = await fetch(`${SYNTHESIA_BASE_URL}/users/me`, {
         method: 'GET',
         headers: {
           'Authorization': apiKey,
@@ -98,7 +101,7 @@ export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
    */
   async avatars(apiKey: string): Promise<SynthesiaAvatar[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/avatars`, {
+      const response = await fetch(`${SYNTHESIA_BASE_URL}/avatars`, {
         method: 'GET',
         headers: {
           'Authorization': apiKey,
@@ -125,7 +128,7 @@ export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
    */
   async voices(apiKey: string): Promise<SynthesiaVoice[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/voices`, {
+      const response = await fetch(`${SYNTHESIA_BASE_URL}/voices`, {
         method: 'GET',
         headers: {
           'Authorization': apiKey,

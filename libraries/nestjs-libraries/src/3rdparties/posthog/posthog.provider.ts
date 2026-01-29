@@ -27,6 +27,11 @@ interface PostHogEvent {
 }
 
 /**
+ * Base URL for PostHog API
+ */
+const POSTHOG_BASE_URL = 'https://app.posthog.com';
+
+/**
  * PostHog Provider
  *
  * PostHog is an open-source product analytics platform.
@@ -42,8 +47,6 @@ interface PostHogEvent {
   fields: [],
 })
 export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
-  private readonly baseUrl: string = 'https://app.posthog.com';
-
   /**
    * Check if the API key is valid by testing API access
    *
@@ -61,7 +64,7 @@ export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
 
       // Test with project info endpoint if personal key provided
       if (personalKey) {
-        const response = await fetch(`${this.baseUrl}/api/projects/@current/`, {
+        const response = await fetch(`${POSTHOG_BASE_URL}/api/projects/@current/`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${personalKey}`,
@@ -133,7 +136,7 @@ export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
 
     const [projectKey] = apiKey.split(':');
 
-    const response = await fetch(`${this.baseUrl}/capture/`, {
+    const response = await fetch(`${POSTHOG_BASE_URL}/capture/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -295,7 +298,7 @@ export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
   ): Promise<string> {
     const [projectKey] = apiKey.split(':');
 
-    const response = await fetch(`${this.baseUrl}/batch/`, {
+    const response = await fetch(`${POSTHOG_BASE_URL}/batch/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

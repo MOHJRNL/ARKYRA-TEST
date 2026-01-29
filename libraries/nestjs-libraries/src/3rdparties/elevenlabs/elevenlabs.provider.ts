@@ -30,6 +30,11 @@ interface ElevenLabsVoice {
 }
 
 /**
+ * Base URL for ElevenLabs API
+ */
+const ELEVENLABS_BASE_URL = 'https://api.elevenlabs.io/v1';
+
+/**
  * ElevenLabs Provider
  *
  * ElevenLabs is an AI audio platform for creating realistic AI voices
@@ -46,8 +51,6 @@ interface ElevenLabsVoice {
   fields: [],
 })
 export class ElevenLabsProvider extends ThirdPartyAbstract<ElevenLabsAudioData> {
-  private readonly baseUrl = 'https://api.elevenlabs.io/v1';
-
   /**
    * Check if the API key is valid by fetching user information
    *
@@ -58,7 +61,7 @@ export class ElevenLabsProvider extends ThirdPartyAbstract<ElevenLabsAudioData> 
     apiKey: string
   ): Promise<false | { name: string; username: string; id: string }> {
     try {
-      const response = await fetch(`${this.baseUrl}/user`, {
+      const response = await fetch(`${ELEVENLABS_BASE_URL}/user`, {
         method: 'GET',
         headers: {
           'xi-api-key': apiKey,
@@ -89,7 +92,7 @@ export class ElevenLabsProvider extends ThirdPartyAbstract<ElevenLabsAudioData> 
    */
   async voices(apiKey: string): Promise<ElevenLabsVoice[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/voices`, {
+      const response = await fetch(`${ELEVENLABS_BASE_URL}/voices`, {
         method: 'GET',
         headers: {
           'xi-api-key': apiKey,
@@ -115,7 +118,7 @@ export class ElevenLabsProvider extends ThirdPartyAbstract<ElevenLabsAudioData> 
    */
   async models(apiKey: string): Promise<string[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/models`, {
+      const response = await fetch(`${ELEVENLABS_BASE_URL}/models`, {
         method: 'GET',
         headers: {
           'xi-api-key': apiKey,

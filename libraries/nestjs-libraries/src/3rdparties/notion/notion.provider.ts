@@ -26,6 +26,16 @@ interface NotionDatabase {
 }
 
 /**
+ * Base URL for Notion API
+ */
+const NOTION_BASE_URL = 'https://api.notion.com/v1';
+
+/**
+ * Notion API version
+ */
+const NOTION_VERSION = '2022-06-28';
+
+/**
  * Notion Provider
  *
  * Notion is an all-in-one workspace for notes, tasks, wikis, and databases.
@@ -41,9 +51,6 @@ interface NotionDatabase {
   fields: [],
 })
 export class NotionProvider extends ThirdPartyAbstract<NotionData> {
-  private readonly baseUrl: string = 'https://api.notion.com/v1';
-  private readonly notionVersion: string = '2022-06-28';
-
   /**
    * Check if the API key is valid by fetching user information
    *
@@ -54,11 +61,11 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
     apiKey: string
   ): Promise<false | { name: string; username: string; id: string }> {
     try {
-      const response = await fetch(`${this.baseUrl}/users/me`, {
+      const response = await fetch(`${NOTION_BASE_URL}/users/me`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
-          'Notion-Version': this.notionVersion,
+          'Notion-Version': NOTION_VERSION,
         },
       });
 
@@ -86,11 +93,11 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
    */
   async databases(apiKey: string): Promise<NotionDatabase[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/search`, {
+      const response = await fetch(`${NOTION_BASE_URL}/search`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
-          'Notion-Version': this.notionVersion,
+          'Notion-Version': NOTION_VERSION,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -213,7 +220,7 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
-          'Notion-Version': this.notionVersion,
+          'Notion-Version': NOTION_VERSION,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({

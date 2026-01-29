@@ -27,6 +27,11 @@ interface AirtableRecord {
 }
 
 /**
+ * Base URL for Airtable API
+ */
+const AIRTABLE_BASE_URL = 'https://api.airtable.com/v0';
+
+/**
  * Airtable Provider
  *
  * Airtable is a cloud-based database and spreadsheet hybrid platform.
@@ -42,8 +47,6 @@ interface AirtableRecord {
   fields: [],
 })
 export class AirtableProvider extends ThirdPartyAbstract<AirtableData> {
-  private readonly baseUrl = 'https://api.airtable.com/v0';
-
   /**
    * Check if the API key is valid by listing bases
    *
@@ -154,7 +157,7 @@ export class AirtableProvider extends ThirdPartyAbstract<AirtableData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/${data.base_id}/${encodeURIComponent(data.table_name)}?${params}`,
+      `${AIRTABLE_BASE_URL}/${data.base_id}/${encodeURIComponent(data.table_name)}?${params}`,
       {
         method: 'GET',
         headers: {
@@ -181,7 +184,7 @@ export class AirtableProvider extends ThirdPartyAbstract<AirtableData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/${data.base_id}/${encodeURIComponent(data.table_name)}/${data.record_id}`,
+      `${AIRTABLE_BASE_URL}/${data.base_id}/${encodeURIComponent(data.table_name)}/${data.record_id}`,
       {
         method: 'GET',
         headers: {
@@ -208,7 +211,7 @@ export class AirtableProvider extends ThirdPartyAbstract<AirtableData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/${data.base_id}/${encodeURIComponent(data.table_name)}`,
+      `${AIRTABLE_BASE_URL}/${data.base_id}/${encodeURIComponent(data.table_name)}`,
       {
         method: 'POST',
         headers: {
@@ -242,7 +245,7 @@ export class AirtableProvider extends ThirdPartyAbstract<AirtableData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/${data.base_id}/${encodeURIComponent(data.table_name)}/${data.record_id}`,
+      `${AIRTABLE_BASE_URL}/${data.base_id}/${encodeURIComponent(data.table_name)}/${data.record_id}`,
       {
         method: 'PATCH',
         headers: {
@@ -273,7 +276,7 @@ export class AirtableProvider extends ThirdPartyAbstract<AirtableData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/${data.base_id}/${encodeURIComponent(data.table_name)}/${data.record_id}`,
+      `${AIRTABLE_BASE_URL}/${data.base_id}/${encodeURIComponent(data.table_name)}/${data.record_id}`,
       {
         method: 'DELETE',
         headers: {

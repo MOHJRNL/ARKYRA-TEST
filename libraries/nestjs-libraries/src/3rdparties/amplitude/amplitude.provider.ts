@@ -30,6 +30,16 @@ interface AmplitudeEvent {
 }
 
 /**
+ * HTTP API URL for Amplitude event tracking
+ */
+const AMPLITUDE_HTTP_API_URL = 'https://api2.amplitude.com/2/httpapi';
+
+/**
+ * Analytics API URL for Amplitude queries
+ */
+const AMPLITUDE_API_URL = 'https://amplitude.com/api/2';
+
+/**
  * Amplitude Provider
  *
  * Amplitude is a digital analytics platform for tracking user behavior.
@@ -45,9 +55,6 @@ interface AmplitudeEvent {
   fields: [],
 })
 export class AmplitudeProvider extends ThirdPartyAbstract<AmplitudeData> {
-  private readonly httpApiUrl = 'https://api2.amplitude.com/2/httpapi';
-  private readonly apiUrl = 'https://amplitude.com/api/2';
-
   /**
    * Check if the API key is valid by testing API access
    *
@@ -63,7 +70,7 @@ export class AmplitudeProvider extends ThirdPartyAbstract<AmplitudeData> {
 
       // If we have a secret key, test with it
       if (secretKey) {
-        const response = await fetch(`${this.apiUrl}/projects`, {
+        const response = await fetch(`${AMPLITUDE_API_URL}/projects`, {
           method: 'GET',
           headers: {
             'Authorization': `Basic ${Buffer.from(`${key}:${secretKey}`).toString('base64')}`,
@@ -135,7 +142,7 @@ export class AmplitudeProvider extends ThirdPartyAbstract<AmplitudeData> {
 
     const [key] = apiKey.split(':');
 
-    const response = await fetch(this.httpApiUrl, {
+    const response = await fetch(AMPLITUDE_HTTP_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -216,7 +223,7 @@ export class AmplitudeProvider extends ThirdPartyAbstract<AmplitudeData> {
     if (data.start_date) params.append('start', data.start_date);
     if (data.end_date) params.append('end', data.end_date);
 
-    const response = await fetch(`${this.apiUrl}/events/list?${params}`, {
+    const response = await fetch(`${AMPLITUDE_API_URL}/events/list?${params}`, {
       method: 'GET',
       headers: {
         'Authorization': `Basic ${Buffer.from(`${key}:${secretKey}`).toString('base64')}`,
@@ -246,7 +253,7 @@ export class AmplitudeProvider extends ThirdPartyAbstract<AmplitudeData> {
     }
 
     const response = await fetch(
-      `${this.apiUrl}/useractivity?user=${encodeURIComponent(data.user_id)}`,
+      `${AMPLITUDE_API_URL}/useractivity?user=${encodeURIComponent(data.user_id)}`,
       {
         method: 'GET',
         headers: {
@@ -274,7 +281,7 @@ export class AmplitudeProvider extends ThirdPartyAbstract<AmplitudeData> {
       throw new Error('Secret key required for get_cohorts action');
     }
 
-    const response = await fetch(`${this.apiUrl}/cohorts`, {
+    const response = await fetch(`${AMPLITUDE_API_URL}/cohorts`, {
       method: 'GET',
       headers: {
         'Authorization': `Basic ${Buffer.from(`${key}:${secretKey}`).toString('base64')}`,
@@ -300,7 +307,7 @@ export class AmplitudeProvider extends ThirdPartyAbstract<AmplitudeData> {
   async batchTrack(apiKey: string, events: AmplitudeEvent[]): Promise<string> {
     const [key] = apiKey.split(':');
 
-    const response = await fetch(this.httpApiUrl, {
+    const response = await fetch(AMPLITUDE_HTTP_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

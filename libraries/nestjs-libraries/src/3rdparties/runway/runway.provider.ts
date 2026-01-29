@@ -27,6 +27,11 @@ interface RunwayTask {
 }
 
 /**
+ * Base URL for Runway API
+ */
+const RUNWAY_BASE_URL = 'https://api.runwayml.com/v1';
+
+/**
  * Runway Provider
  *
  * Runway is an AI platform for creative video generation.
@@ -42,8 +47,6 @@ interface RunwayTask {
   fields: [],
 })
 export class RunwayProvider extends ThirdPartyAbstract<RunwayGenerationData> {
-  private readonly baseUrl: string = 'https://api.runwayml.com/v1';
-
   /**
    * Check if the API key is valid by fetching user information
    *
@@ -54,7 +57,7 @@ export class RunwayProvider extends ThirdPartyAbstract<RunwayGenerationData> {
     apiKey: string
   ): Promise<false | { name: string; username: string; id: string }> {
     try {
-      const response = await fetch(`${this.baseUrl}/user`, {
+      const response = await fetch(`${RUNWAY_BASE_URL}/user`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
@@ -86,7 +89,7 @@ export class RunwayProvider extends ThirdPartyAbstract<RunwayGenerationData> {
    */
   async models(apiKey: string): Promise<string[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/models`, {
+      const response = await fetch(`${RUNWAY_BASE_URL}/models`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${apiKey}`,

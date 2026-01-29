@@ -29,6 +29,11 @@ interface PlayHTVoice {
 }
 
 /**
+ * Base URL for PlayHT API
+ */
+const PLAYHT_BASE_URL = 'https://api.play.ht/api/v2';
+
+/**
  * PlayHT Provider
  *
  * PlayHT is an ultra-realistic AI voice generation platform.
@@ -44,8 +49,6 @@ interface PlayHTVoice {
   fields: [],
 })
 export class PlayHTProvider extends ThirdPartyAbstract<PlayHTAudioData> {
-  private readonly baseUrl: string = 'https://api.play.ht/api/v2';
-
   /**
    * Check if the API key is valid by fetching user information
    *
@@ -62,7 +65,7 @@ export class PlayHTProvider extends ThirdPartyAbstract<PlayHTAudioData> {
         return false;
       }
 
-      const response = await fetch(`${this.baseUrl}/usage`, {
+      const response = await fetch(`${PLAYHT_BASE_URL}/usage`, {
         method: 'GET',
         headers: {
           'X-USER-ID': userId,
@@ -97,7 +100,7 @@ export class PlayHTProvider extends ThirdPartyAbstract<PlayHTAudioData> {
     try {
       const [userId, secretKey] = apiKey.split(':');
 
-      const response = await fetch(`${this.baseUrl}/voices`, {
+      const response = await fetch(`${PLAYHT_BASE_URL}/voices`, {
         method: 'GET',
         headers: {
           'X-USER-ID': userId,

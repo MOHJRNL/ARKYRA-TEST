@@ -15,6 +15,11 @@ interface LookerStudioData {
 }
 
 /**
+ * Base URL for Looker Studio API
+ */
+const LOOKER_STUDIO_BASE_URL = 'https://datastudio.googleapis.com/v1';
+
+/**
  * Looker Studio Provider
  *
  * Looker Studio (formerly Google Data Studio) is a data visualization platform.
@@ -33,8 +38,6 @@ interface LookerStudioData {
   fields: [],
 })
 export class LookerStudioProvider extends ThirdPartyAbstract<LookerStudioData> {
-  private readonly baseUrl: string = 'https://datastudio.googleapis.com/v1';
-
   /**
    * Check if the API key is valid
    *

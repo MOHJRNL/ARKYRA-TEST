@@ -29,6 +29,11 @@ interface MurfVoice {
 }
 
 /**
+ * Base URL for Murf API
+ */
+const MURF_BASE_URL = 'https://api.murf.ai/v1';
+
+/**
  * Murf Provider
  *
  * Murf AI is a studio-quality AI voice generation platform.
@@ -44,8 +49,6 @@ interface MurfVoice {
   fields: [],
 })
 export class MurfProvider extends ThirdPartyAbstract<MurfAudioData> {
-  private readonly baseUrl: string = 'https://api.murf.ai/v1';
-
   /**
    * Check if the API key is valid by fetching user information
    *
@@ -56,7 +59,7 @@ export class MurfProvider extends ThirdPartyAbstract<MurfAudioData> {
     apiKey: string
   ): Promise<false | { name: string; username: string; id: string }> {
     try {
-      const response = await fetch(`${this.baseUrl}/user`, {
+      const response = await fetch(`${MURF_BASE_URL}/user`, {
         method: 'GET',
         headers: {
           'api-key': apiKey,
@@ -88,7 +91,7 @@ export class MurfProvider extends ThirdPartyAbstract<MurfAudioData> {
    */
   async voices(apiKey: string): Promise<MurfVoice[]> {
     try {
-      const response = await fetch(`${this.baseUrl}/voices`, {
+      const response = await fetch(`${MURF_BASE_URL}/voices`, {
         method: 'GET',
         headers: {
           'api-key': apiKey,
