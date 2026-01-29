@@ -127,6 +127,52 @@ arkyra/
 
 ## 🚀 Quick Start
 
+### ⚡ Demo Mode (No API Keys Required!)
+
+**Start exploring ARKYRA in under 5 minutes - no AI API keys needed!**
+
+ARKYRA now includes a fully functional **Demo Mode** that allows you to:
+- ✅ Start the platform without any API keys
+- ✅ Test all features with mock AI responses
+- ✅ Explore the interface risk-free
+- ✅ Zero API costs for development and testing
+
+```bash
+# Clone and install
+git clone https://github.com/MOHJRNL/ARKYRA.git && cd ARKYRA
+pnpm install
+
+# Minimal setup (just database, Redis, and URLs)
+cp .env.example .env
+# Configure: DATABASE_URL, REDIS_URL, JWT_SECRET, URLs
+# Leave OPENAI_API_KEY empty for demo mode
+
+# Start platform
+pnpm run dev
+
+# You'll see:
+# 🔧 DEMO MODE ACTIVE - AI features will return mock data
+# Platform is fully functional in demo mode for testing!
+```
+
+**[📖 Demo Mode Quick Start Guide](./DEMO_MODE_QUICK_START.md)** | **[📚 Full Demo Mode Docs](./AI_DEMO_MODE.md)**
+
+### 🔑 Production Mode (With API Keys)
+
+For real AI features, add your API keys to `.env`:
+
+```bash
+# OpenAI (Primary)
+OPENAI_API_KEY=sk-proj-your-key
+
+# Or use alternative providers (Google Gemini recommended)
+GOOGLE_API_KEY=your-google-key    # Cost-effective
+ANTHROPIC_API_KEY=your-claude-key  # Best for long content
+GROQ_API_KEY=your-groq-key        # Fastest inference
+```
+
+## 🚀 Installation & Setup
+
 ### Prerequisites
 
 - Docker 20.10+ and Docker Compose 2.0+

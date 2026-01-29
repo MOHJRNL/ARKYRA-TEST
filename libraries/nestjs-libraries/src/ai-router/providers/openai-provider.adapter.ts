@@ -7,6 +7,13 @@ import {
 } from '../interfaces/ai-provider.interface';
 import { AIProviderType, PROVIDER_CONFIG } from '../enums/ai-provider.enum';
 import { AccuracyLevel } from '../enums/accuracy-level.enum';
+import {
+  isDemoMode,
+  DEMO_RESPONSES,
+  DEMO_PRICING,
+  DEMO_PERFORMANCE,
+  logDemoModeWarning
+} from '../config/demo-mode.config';
 import OpenAI from 'openai';
 
 /**
@@ -32,10 +39,21 @@ export class OpenAIProviderAdapter extends BaseAIProvider {
 
     // Initialize OpenAI client
     this.client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY || 'sk-proj-',
+      apiKey: process.env.OPENAI_API_KEY || 'sk-demo-key',
     });
 
-    this.logger.log('OpenAI Provider initialized');
+    if (isDemoMode()) {
+      this.logger.warn('OpenAI Provider initialized in DEMO MODE - API calls will return mock data');
+    } else {
+      this.logger.log('OpenAI Provider initialized with API key');
+    }
+  }
+
+  /**
+   * Check if provider is in demo mode
+   */
+  isDemoMode(): boolean {
+    return isDemoMode();
   }
 
   /**
@@ -49,6 +67,14 @@ export class OpenAIProviderAdapter extends BaseAIProvider {
    * Check if OpenAI is healthy
    */
   async isHealthy(): Promise<boolean> {
+    // Demo mode: always healthy
+    if (isDemoMode()) {
+      this.metrics.isHealthy = true;
+      this.metrics.lastHealthCheck = new Date();
+      this.metrics.avgLatencyMs = DEMO_PERFORMANCE.latencyMs;
+      return true;
+    }
+
     try {
       const startTime = Date.now();
 
@@ -79,6 +105,30 @@ export class OpenAIProviderAdapter extends BaseAIProvider {
 
     const model = this.selectModel(request.accuracyLevel);
     const startTime = Date.now();
+
+    // Demo mode: return mock response
+    if (isDemoMode()) {
+      logDemoModeWarning(this.logger, 'generateCompletion');
+
+      // Simulate realistic latency
+      await new Promise(resolve => setTimeout(resolve, DEMO_PERFORMANCE.latencyMs));
+
+      const latencyMs = Date.now() - startTime;
+      const content = DEMO_RESPONSES.completion.postGeneration;
+      const inputTokens = Math.ceil(request.prompt.length / 4);
+      const outputTokens = Math.ceil(content.length / 4);
+
+      this.updateMetrics(true, latencyMs);
+
+      return this.buildSuccessResponse(
+        content,
+        inputTokens,
+        outputTokens,
+        DEMO_PRICING.inputCost,
+        latencyMs,
+        DEMO_PERFORMANCE.model,
+      );
+    }
 
     try {
       // Build messages

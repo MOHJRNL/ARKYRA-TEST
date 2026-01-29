@@ -68,7 +68,21 @@ async function start() {
 
     checkConfiguration(); // Do this last, so that users will see obvious issues at the end of the startup log without having to scroll up.
 
+    // Check demo mode and display status
+    const demoMode = !process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'sk-demo-key';
+
     Logger.log(`🚀 Backend is running on: http://localhost:${port}`);
+
+    if (demoMode) {
+      Logger.warn('═══════════════════════════════════════════════════════════');
+      Logger.warn('🔧 DEMO MODE ACTIVE - AI features will return mock data');
+      Logger.warn('To enable real AI features, add to your .env file:');
+      Logger.warn('   OPENAI_API_KEY=your-openai-api-key');
+      Logger.warn('Platform is fully functional in demo mode for testing!');
+      Logger.warn('═══════════════════════════════════════════════════════════');
+    } else {
+      Logger.log('✅ AI features enabled with configured API keys');
+    }
   } catch (e) {
     Logger.error(`Backend failed to start on port ${port}`, e);
   }

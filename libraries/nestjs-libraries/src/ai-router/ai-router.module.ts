@@ -22,6 +22,7 @@ import { ProviderMetricsRepository } from './repositories/provider-metrics.repos
 // Dependencies
 import { DatabaseModule } from '../database/prisma/database.module';
 import { OpenaiService } from '../openai/openai.service';
+import { Logger } from '@nestjs/common';
 
 /**
  * AI Router Module
@@ -32,6 +33,7 @@ import { OpenaiService } from '../openai/openai.service';
  * - Usage tracking and analytics
  * - Fallback handling
  * - Performance metrics
+ * - Demo mode support (works without API keys)
  *
  * @example
  * ```typescript
@@ -56,7 +58,7 @@ import { OpenaiService } from '../openai/openai.service';
     QuotaManagementService,
     ProviderMetricsService,
 
-    // Provider Adapters
+    // Provider Adapters (work in demo mode without API keys)
     OpenAIProviderAdapter,
     GLMProviderAdapter,
     ProviderHealthService,
@@ -66,7 +68,7 @@ import { OpenaiService } from '../openai/openai.service';
     QuotaRepository,
     ProviderMetricsRepository,
 
-    // Dependencies
+    // Dependencies (work in demo mode)
     OpenaiService,
   ],
   exports: [

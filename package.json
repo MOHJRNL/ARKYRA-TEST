@@ -75,6 +75,7 @@
     "@nestjs/throttler": "^6.3.0",
     "@neynar/nodejs-sdk": "^3.112.0",
     "@neynar/react": "^0.9.7",
+    "@notionhq/client": "^5.8.0",
     "@pigment-css/react": "^0.0.30",
     "@postiz/wallets": "^0.0.1",
     "@prisma/client": "6.5.0",

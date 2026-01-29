@@ -10,6 +10,7 @@ import { RoutingContext } from '../interfaces/ai-router.interface';
 import { OpenAIProviderAdapter } from '../providers/openai-provider.adapter';
 import { AccuracyLevel } from '../enums/accuracy-level.enum';
 import { AITaskType } from '../enums/task-type.enum';
+import { getDemoModeMessage } from '../config/demo-mode.config';
 
 /**
  * AI Router Service
@@ -42,7 +43,10 @@ export class AIRouterService {
     private readonly quotaService: QuotaManagementService,
     private readonly openaiProvider: OpenAIProviderAdapter,
   ) {
+    // Log initialization with demo mode status
+    const demoModeMessage = getDemoModeMessage();
     this.logger.log('AI Router Service initialized');
+    this.logger.log(demoModeMessage);
   }
 
   /**
