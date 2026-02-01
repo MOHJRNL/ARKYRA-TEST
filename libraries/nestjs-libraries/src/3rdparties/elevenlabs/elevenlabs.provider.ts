@@ -150,7 +150,7 @@ export class ElevenLabsProvider extends ThirdPartyAbstract<ElevenLabsAudioData> 
   ): Promise<string> {
     try {
       const response = await fetch(
-        `${this.baseUrl}/text-to-speech/${data.voice_id}`,
+        `${ELEVENLABS_BASE_URL}/text-to-speech/${data.voice_id}`,
         {
           method: 'POST',
           headers: {

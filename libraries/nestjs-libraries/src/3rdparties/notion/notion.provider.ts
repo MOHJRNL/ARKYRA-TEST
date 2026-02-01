@@ -33,7 +33,7 @@ const NOTION_BASE_URL = 'https://api.notion.com/v1';
 /**
  * Notion API version
  */
-const NOTION_VERSION = '2022-06-28';
+const NOTION_VERSION = '2025-09-03';
 
 /**
  * Notion Provider
@@ -215,7 +215,7 @@ export class NotionProvider extends ThirdPartyAbstract<NotionData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/databases/${data.database_id}/query`,
+      `${NOTION_BASE_URL}/databases/${data.database_id}/query`,
       {
         method: 'POST',
         headers: {

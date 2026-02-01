@@ -29,7 +29,7 @@ interface PostHogEvent {
 /**
  * Base URL for PostHog API
  */
-const POSTHOG_BASE_URL = 'https://app.posthog.com';
+const POSTHOG_BASE_URL = 'https://us.posthog.com';
 
 /**
  * PostHog Provider
@@ -175,7 +175,7 @@ export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
     if (data.distinct_id) params.append('distinct_id', data.distinct_id);
 
     const response = await fetch(
-      `${this.baseUrl}/api/projects/@current/events/?${params}`,
+      `${POSTHOG_BASE_URL}/api/projects/@current/events/?${params}`,
       {
         method: 'GET',
         headers: {
@@ -204,7 +204,7 @@ export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/api/projects/@current/insights/`,
+      `${POSTHOG_BASE_URL}/api/projects/@current/insights/`,
       {
         method: 'GET',
         headers: {
@@ -233,7 +233,7 @@ export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/api/projects/@current/insights/`,
+      `${POSTHOG_BASE_URL}/api/projects/@current/insights/`,
       {
         method: 'POST',
         headers: {
@@ -267,7 +267,7 @@ export class PostHogProvider extends ThirdPartyAbstract<PostHogData> {
     }
 
     const response = await fetch(
-      `${this.baseUrl}/api/projects/@current/persons/`,
+      `${POSTHOG_BASE_URL}/api/projects/@current/persons/`,
       {
         method: 'GET',
         headers: {

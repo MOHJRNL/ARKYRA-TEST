@@ -160,7 +160,7 @@ export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
   ): Promise<string> {
     try {
       // Create video
-      const createResponse = await fetch(`${this.baseUrl}/videos`, {
+      const createResponse = await fetch(`${SYNTHESIA_BASE_URL}/videos`, {
         method: 'POST',
         headers: {
           'Authorization': apiKey,
@@ -195,7 +195,7 @@ export class SynthesiaProvider extends ThirdPartyAbstract<SynthesiaVideoData> {
       const maxAttempts = 200; // 10 minutes max
 
       while (attempts < maxAttempts) {
-        const statusResponse = await fetch(`${this.baseUrl}/videos/${videoId}`, {
+        const statusResponse = await fetch(`${SYNTHESIA_BASE_URL}/videos/${videoId}`, {
           method: 'GET',
           headers: {
             'Authorization': apiKey,

@@ -122,7 +122,7 @@ export class RunwayProvider extends ThirdPartyAbstract<RunwayGenerationData> {
   ): Promise<string> {
     try {
       // Create generation task
-      const createResponse = await fetch(`${this.baseUrl}/generations`, {
+      const createResponse = await fetch(`${RUNWAY_BASE_URL}/generations`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
@@ -150,7 +150,7 @@ export class RunwayProvider extends ThirdPartyAbstract<RunwayGenerationData> {
       const maxAttempts = 300; // 15 minutes max for video generation
 
       while (attempts < maxAttempts) {
-        const statusResponse = await fetch(`${this.baseUrl}/generations/${taskId}`, {
+        const statusResponse = await fetch(`${RUNWAY_BASE_URL}/generations/${taskId}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${apiKey}`,

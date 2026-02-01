@@ -162,7 +162,7 @@ export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
   ): Promise<string> {
     try {
       // Create talk
-      const createResponse = await fetch(`${this.baseUrl}/talks`, {
+      const createResponse = await fetch(`${DID_BASE_URL}/talks`, {
         method: 'POST',
         headers: {
           'Authorization': `Basic ${apiKey}`,
@@ -199,7 +199,7 @@ export class DIdProvider extends ThirdPartyAbstract<DIdTalkData> {
       const maxAttempts = 200; // 10 minutes max
 
       while (attempts < maxAttempts) {
-        const statusResponse = await fetch(`${this.baseUrl}/talks/${talkId}`, {
+        const statusResponse = await fetch(`${DID_BASE_URL}/talks/${talkId}`, {
           method: 'GET',
           headers: {
             'Authorization': `Basic ${apiKey}`,

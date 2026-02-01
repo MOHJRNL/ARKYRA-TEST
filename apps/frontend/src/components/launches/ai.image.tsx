@@ -108,7 +108,7 @@ ${type}
               </defs>
             </svg>
           </div>
-          <div className="text-[10px] font-[600] iconBreak:hidden block text-white">{t('ai', 'AI')} Image</div>
+          <div className="text-[10px] font-[600] iconBreak:hidden block text-gray-900 dark:text-white">{t('ai', 'AI')} Image</div>
         </div>
       </div>
       {value.length >= 30 && !loading && (

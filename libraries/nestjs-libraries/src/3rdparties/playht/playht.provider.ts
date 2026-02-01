@@ -135,7 +135,7 @@ export class PlayHTProvider extends ThirdPartyAbstract<PlayHTAudioData> {
       const [userId, secretKey] = apiKey.split(':');
 
       // Create TTS job
-      const createResponse = await fetch(`${this.baseUrl}/tts`, {
+      const createResponse = await fetch(`${PLAYHT_BASE_URL}/tts`, {
         method: 'POST',
         headers: {
           'X-USER-ID': userId,
@@ -164,7 +164,7 @@ export class PlayHTProvider extends ThirdPartyAbstract<PlayHTAudioData> {
       const maxAttempts = 60; // 3 minutes max
 
       while (attempts < maxAttempts) {
-        const statusResponse = await fetch(`${this.baseUrl}/tts/${jobId}`, {
+        const statusResponse = await fetch(`${PLAYHT_BASE_URL}/tts/${jobId}`, {
           method: 'GET',
           headers: {
             'X-USER-ID': userId,

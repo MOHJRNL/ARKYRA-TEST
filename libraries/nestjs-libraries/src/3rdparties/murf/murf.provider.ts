@@ -123,7 +123,7 @@ export class MurfProvider extends ThirdPartyAbstract<MurfAudioData> {
   ): Promise<string> {
     try {
       // Create speech generation job
-      const createResponse = await fetch(`${this.baseUrl}/speech`, {
+      const createResponse = await fetch(`${MURF_BASE_URL}/speech`, {
         method: 'POST',
         headers: {
           'api-key': apiKey,
@@ -151,7 +151,7 @@ export class MurfProvider extends ThirdPartyAbstract<MurfAudioData> {
       const maxAttempts = 60; // 3 minutes max
 
       while (attempts < maxAttempts) {
-        const statusResponse = await fetch(`${this.baseUrl}/speech/${job_id}`, {
+        const statusResponse = await fetch(`${MURF_BASE_URL}/speech/${job_id}`, {
           method: 'GET',
           headers: {
             'api-key': apiKey,

@@ -167,7 +167,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
     const keyParam = !apiKey.startsWith('ya29.') ? `&key=${apiKey}` : '';
 
     const response = await fetch(
-      `${this.baseUrl}/spreadsheets/${data.spreadsheet_id}/values/${range}?valueRenderOption=FORMATTED_VALUE${keyParam}`,
+      `${GOOGLE_SHEETS_BASE_URL}/spreadsheets/${data.spreadsheet_id}/values/${range}?valueRenderOption=FORMATTED_VALUE${keyParam}`,
       {
         method: 'GET',
         headers: authHeader,
@@ -198,7 +198,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
     const keyParam = !apiKey.startsWith('ya29.') ? `?key=${apiKey}` : '';
 
     const response = await fetch(
-      `${this.baseUrl}/spreadsheets/${data.spreadsheet_id}/values/${range}${keyParam}`,
+      `${GOOGLE_SHEETS_BASE_URL}/spreadsheets/${data.spreadsheet_id}/values/${range}${keyParam}`,
       {
         method: 'PUT',
         headers: {
@@ -236,7 +236,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
     const keyParam = !apiKey.startsWith('ya29.') ? `?key=${apiKey}` : '';
 
     const response = await fetch(
-      `${this.baseUrl}/spreadsheets/${data.spreadsheet_id}/values/${range}:append${keyParam}`,
+      `${GOOGLE_SHEETS_BASE_URL}/spreadsheets/${data.spreadsheet_id}/values/${range}:append${keyParam}`,
       {
         method: 'POST',
         headers: {
@@ -270,7 +270,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
     const keyParam = !apiKey.startsWith('ya29.') ? `?key=${apiKey}` : '';
 
     const response = await fetch(
-      `${this.baseUrl}/spreadsheets/${data.spreadsheet_id}/values/${range}:clear${keyParam}`,
+      `${GOOGLE_SHEETS_BASE_URL}/spreadsheets/${data.spreadsheet_id}/values/${range}:clear${keyParam}`,
       {
         method: 'POST',
         headers: {
@@ -302,7 +302,7 @@ export class GoogleSheetsProvider extends ThirdPartyAbstract<GoogleSheetsData> {
     const keyParam = !apiKey.startsWith('ya29.') ? `?key=${apiKey}` : '';
 
     const response = await fetch(
-      `${this.baseUrl}/spreadsheets/${data.spreadsheet_id}:batchUpdate${keyParam}`,
+      `${GOOGLE_SHEETS_BASE_URL}/spreadsheets/${data.spreadsheet_id}:batchUpdate${keyParam}`,
       {
         method: 'POST',
         headers: {

@@ -172,7 +172,7 @@ export const TimeTable: FC<{
           <button
             type="button"
             onClick={addHour}
-            className="h-[42px] px-[16px] bg-[#048FCC] hover:bg-[#235170] active:bg-[#F8AB0C] transition-colors rounded-[8px] flex items-center gap-[6px] text-white text-[14px] font-medium"
+            className="h-[42px] px-[16px] bg-[#048FCC] hover:bg-[#235170] active:bg-[#F8AB0C] transition-colors rounded-[8px] flex items-center gap-[6px] text-gray-900 dark:text-white text-[14px] font-medium"
           >
             <PlusIcon size={14} />
             {t('add', 'Add')}

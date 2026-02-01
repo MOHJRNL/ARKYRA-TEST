@@ -176,7 +176,7 @@ export const TagsComponentInner: FC<{
           ))}
           <div
             onClick={addTag}
-            className="cursor-pointer gap-[8px] flex w-full h-[34px] rounded-[8px] mt-[12px] px-[16px] justify-center items-center bg-[#048FCC] text-white"
+            className="cursor-pointer gap-[8px] flex w-full h-[34px] rounded-[8px] mt-[12px] px-[16px] justify-center items-center bg-[#048FCC] text-gray-900 dark:text-white"
           >
             <div>
               <PlusIcon />
@@ -201,7 +201,7 @@ const Check: FC<{ value: boolean; onChange: (value: boolean) => void }> = ({
         value && 'bg-[#048FCC]'
       )}
     >
-      {value ? <CheckmarkIcon className="text-white" /> : ''}
+      {value ? <CheckmarkIcon className="text-gray-900 dark:text-white" /> : ''}
     </div>
   );
 };
@@ -392,7 +392,7 @@ export const TagsComponentA: FC<{
                 >
                   X
                 </div>
-                <div className="text-white mix-blend-difference">
+                <div className="text-gray-900 dark:text-white mix-blend-difference">
                   {tag.tag.label}
                 </div>
               </div>
