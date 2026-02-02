@@ -1,9 +1,6 @@
 <p align="center">
   <a href="https://arkyra.pro/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./apps/frontend/public/logos/arkyra-pulse-light.png">
-    <img alt="ARKYRA Logo" src="./apps/frontend/public/logos/arkyra-pulse-light.png" width="280"/>
-  </picture>
+    <img alt="ARKYRA - Enterprise Social Media Management" src="./apps/frontend/public/logos/arkyra-logo.png" width="400"/>
   </a>
 </p>
 
