@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Enterprise Social Media Management Platform</strong><br />
-  Built for Al Jazeera, ready for the world.
+ 
 </p>
 
 <p align="center">
@@ -521,11 +521,7 @@ This project is licensed under the **AGPL-3.0 License** - see the [LICENSE](./LI
 
 ARKYRA is built on the foundation of [Postiz](https://github.com/gitroomhq/postiz-app), an excellent open-source social media scheduling tool. We extend our gratitude to the Postiz team for their pioneering work in this space.
 
-## ❤️ Credits
 
-**Made with love by [Noah Hendy](https://noahhendy.com)**
-
-Built for Al Jazeera Media Network and the world.
 
 ## 📧 Support
 
