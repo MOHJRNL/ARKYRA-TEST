@@ -572,7 +572,7 @@ Built for Al Jazeera Media Network and the world.
 ---
 
 <p align="center">
-  <strong>Built with ❤️ for Al Jazeera and the world</strong><br />
+  <strong>Built with ❤️ by Noah</strong><br />
   <sub>Enterprise-Grade • Open Source • Production-Ready</sub>
 </p>
 
