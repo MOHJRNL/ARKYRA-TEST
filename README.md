@@ -27,7 +27,7 @@
 <div align="center">
   <strong>
   <h2>Enterprise Social Media Management Platform</h2><br />
-  <a href="https://arkyra.pro">ARKYRA</a>: Built for Al Jazeera, ready for the world.<br /><br />
+  <a href="https://arkyra.pro">ARKYRA</a>:<br /><br />
   </strong>
   ARKYRA offers everything you need to manage your social media posts,<br />build an audience, capture leads, and grow your business.<br />
   Powered by AI, designed for scale, built for enterprise.
