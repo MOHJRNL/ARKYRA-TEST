@@ -72,7 +72,7 @@
 
 ## 🚀 About ARKYRA
 
-ARKYRA is an enterprise-grade social media management platform originally built for **Al Jazeera Media Network**. It combines powerful scheduling, AI-driven content generation, and comprehensive analytics into one unified platform.
+ARKYRA is an enterprise-grade social media management platform originally built for **Enterprises**. It combines powerful scheduling, AI-driven content generation, and comprehensive analytics into one unified platform.
 
 ### Why ARKYRA?
 
