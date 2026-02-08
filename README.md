@@ -331,9 +331,9 @@ NEXT_PUBLIC_DEFAULT_LANGUAGE=ar  # or en, fr, es, de, tr
 
 ARKYRA supports two distinct branding modes:
 
-### 1. AJ ARKYRA (Al Jazeera Internal)
-For Al Jazeera Media Network internal use:
-- Al Jazeera logo and colors
+### 1. AJ ARKYRA (AJ Internal)
+For AJ internal use:
+- AJ logo and colors
 - Al Jazeera Arabic Bold font
 - Arabic-first interface
 - Internal branding assets
