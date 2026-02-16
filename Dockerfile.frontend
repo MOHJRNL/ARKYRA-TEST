@@ -9,11 +9,14 @@ WORKDIR /app
 FROM base AS dependencies
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/frontend/package.json ./apps/frontend/
+COPY libraries/ ./libraries/
 # Use pnpm filter to install only frontend-related production dependencies
-RUN pnpm install --filter arkyra-frontend --prod
+RUN pnpm install --filter postiz-frontend --prod
 
 # --- Build Stage: Build the application ---
 FROM base AS build
+
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 # Copy the full source code
 COPY . .
 # Install ALL dependencies (including devDependencies) needed for building

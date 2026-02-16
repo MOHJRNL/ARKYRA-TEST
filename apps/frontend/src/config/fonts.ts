@@ -7,7 +7,6 @@
  */
 
 import localFont from 'next/font/local';
-import { Plus_Jakarta_Sans } from 'next/font/google';
 
 /**
  * Al Jazeera Arabic Bold Font
@@ -25,12 +24,21 @@ export const alJazeeraArabic = localFont({
  * Plus Jakarta Sans Font
  * Used for Latin text (English, French, Spanish, German, etc.)
  */
-export const jakartaSans = Plus_Jakarta_Sans({
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
+export const jakartaSans = localFont({
+  src: [
+    {
+      path: '../../public/fonts/PlusJakartaSans-Variable.ttf',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/PlusJakartaSans-Italic-Variable.ttf',
+      style: 'italic',
+    },
+  ],
   variable: '--font-jakarta-sans',
   display: 'swap',
+  weight: '400 700',
+  fallback: ['system-ui', 'sans-serif'],
 });
 
 /**
