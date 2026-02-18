@@ -1,38 +1,24 @@
-# Dockerfile for ARKYRA Orchestrator (Temporal Worker) - v2 (FIXED)
+# Dockerfile for ARKYRA Orchestrator (Temporal Worker) - v3
 
 # --- Base Stage: Common setup ---
-FROM node:22-alpine AS base
+FROM node:22-slim AS base
 RUN npm install -g pnpm@10.6.1
 WORKDIR /app
 
-# --- Dependencies Stage: Install only production dependencies ---
-FROM base AS dependencies
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY apps/orchestrator/package.json ./apps/orchestrator/
-# Use pnpm filter to install only orchestrator-related production dependencies
-RUN pnpm install --filter arkyra-orchestrator --prod
-
-# --- Build Stage: Build the application ---
+# --- Build Stage: Install all deps and build ---
 FROM base AS build
-# Copy the full source code
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 COPY . .
-# Install ALL dependencies (including devDependencies) needed for building
 RUN pnpm install
-# Build the specific orchestrator application
 RUN pnpm run build:orchestrator
 
 # --- Production Stage: Create the final, lean image ---
 FROM base AS production
 ENV NODE_ENV=production
 
-# Copy production dependencies from the 'dependencies' stage
-COPY --from=dependencies /app/node_modules ./node_modules
-# Copy the built application from the 'build' stage
-COPY --from=build /app/dist/apps/orchestrator ./dist/apps/orchestrator
-# Copy the root package.json which might be needed for runtime
+COPY --from=build /app/node_modules ./node_modules
+# Copy the built application
+COPY --from=build /app/apps/orchestrator/dist ./apps/orchestrator/dist
 COPY package.json ./
 
-# The orchestrator doesn't expose a port, it connects to the Temporal service
-
-# The command to start the Temporal worker
-CMD ["node", "dist/apps/orchestrator/main.js"]
+CMD ["node", "apps/orchestrator/dist/apps/orchestrator/src/main.js"]
